@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:s="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
    <teiHeader>
       <fileDesc>
          
          <titleStmt>
-            <title type="main">Encodage du roman-feuilleton <emph rend="italic">La Daniella</emph>, écrit par George Sand et publié par La Presse (numéro du <date when="1857-01-14">14 janvier 1857</date>).</title>
+            <title type="main">Guide d'encodage du roman-feuilleton "La Daniella", écrit par George Sand et publié par <emph rend="italic">La Presse</emph> (numéro du <date when="1857-01-14">14 janvier 1857</date>).</title>
             <title type="sub">ODD créée avec ODD by Example</title>
             <author>
                <persName xml:id="a_menu">
@@ -36,7 +36,7 @@
    <text>
       <body>
          <div1>
-            <head>Guide d'encodage du roman-feuilleton <emph rend="italic">La Daniella</emph>, écrit par George Sand et publié par La Presse en 1857.</head>
+            <head>Documentation</head>
             
             <p>Faire une brève présentation du projet et de ses exploitations possibles</p>
             <p>Respect du TEI all</p>
@@ -49,24 +49,11 @@
             
             <div2>
                <head>Renseigner les métadonnées du document : le <gi>teiHeader</gi></head>
-               <p>Le <gi>teiHeader</gi> rassemble les métadonnées du document original ainsi que du présent encodage électronique. Il se compose de trois éléments :
-                  <specList>
-                     <specDesc key="fileDesc"/>
-                     <specDesc key="encodingDesc"/>
-                     <specDesc key="profileDesc"/>
-                  </specList>
-               </p>
+               <p>Le <gi>teiHeader</gi> rassemble les métadonnées du document original ainsi que du présent encodage électronique. Il se compose de trois éléments : le <gi>fileDesc</gi>, l'<gi>encodingDesc</gi> et le <gi>profileDesc</gi>.</p>
                
                <div3>
                   <head>Le <gi>fileDesc</gi></head>
-                  <p>Le <gi>fileDesc</gi> permet d'indiquer les éléments bibliographiques du doucument source et du présent document électronique. Il se compose de quatre éléments :
-                     <specList>
-                        <specDesc key="titleStmt"/>
-                        <specDesc key="editionStmt"/>
-                        <specDesc key="publicationStmt"/>
-                        <specDesc key="sourceDesc"/>
-                     </specList>
-                  </p>
+                  <p>Le <gi>fileDesc</gi> permet d'indiquer les éléments bibliographiques du doucument source et du présent document électronique. Il se compose de quatre éléments : le <gi>titleStmt</gi>, l'<gi>editionStmt</gi>, le <gi>publicationStmt</gi> et le <gi>sourceDesc</gi>.</p>
                   
                   <div4>
                      <head>Le <gi>titleStmt</gi></head>
@@ -124,7 +111,7 @@
                   
                   <div4>
                      <head>Le <gi>sourceDesc</gi></head>
-                     <p>Le <gi>sourceDesc</gi> vient décrire le document source. Pour plus d'exhaustivité, il présente un élément <gi>biblFull</gi>. Nous y retrouvons le titre et l'autrice (<gi>titleStmt</gi>) ainsi que des informations sur l'éditeur du document source (<gi>publicationsStmt</gi>, à ne pas confondre avec le même élément vu ci-dessus, qui se réfère quant à lui au document encodé) et l'extrait encodé (<gi>seriesStmt</gi>).</p>
+                     <p>Le <gi>sourceDesc</gi> vient décrire le document source. Pour plus d'exhaustivité, il présente un élément <gi>biblFull</gi>. Nous y retrouvons le titre et l'autrice (<gi>titleStmt</gi>) ainsi que des informations sur l'éditeur du document source (<gi>publicationStmt</gi>, à ne pas confondre avec le même élément vu ci-dessus, qui se réfère quant à lui au document encodé) et l'extrait encodé (<gi>seriesStmt</gi>).</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <sourceDesc>
                            <biblFull>
@@ -171,7 +158,7 @@
                
                <div3>
                   <head>L'<gi>encodingDesc</gi></head>
-                  <p>L'<gi>encodingDesc</gi> permet de préciser des informations relatives à l'encodage du texte. Il se compose ici de deux éléments <specDesc key="projectDesc"/>.
+                  <p>L'<gi>encodingDesc</gi> permet de préciser des informations relatives à l'encodage du texte. Il se compose ici de deux éléments <gi>projectDesc</gi>.
                   </p>
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <encodingDesc>
@@ -187,13 +174,7 @@
                
                <div3>
                   <head>Le <gi>profileDesc</gi></head>
-                  <p>Le <gi>profileDesc</gi> renseigne les informations non-relatives aux références bibliographiques du texte. Il se compose ici de trois éléments :
-                     <specList>
-                        <specDesc key="creation"/>
-                        <specDesc key="particDesc"/>
-                        <specDesc key="settingDesc"/>
-                     </specList>
-                  </p>
+                  <p>Le <gi>profileDesc</gi> renseigne les informations non-relatives aux références bibliographiques du texte. Il se compose ici de trois éléments : le <gi>creation</gi>, le <gi>particDesc</gi> et le <gi>settingDesc</gi>.</p>
                   
                   <div4>
                      <head>L'élément <gi>creation</gi></head>
@@ -209,10 +190,10 @@
                   
                   <div4>
                      <head>Le <gi>particDesc</gi></head>
-                     <p>Tout comme le <gi>settingDesc</gi>, le <gi>particDesc</gi> sert d'index. Pour plus d'informations quant à son usage, voir la section "Faire référence aux personnages".</p>
-                     <p>Au sein d'un élément <gi>listPerson</gi>, il vient lister les personnages principaux du roman-feuilleton. Chaque personnage est renseigné dans un élément <gi>person</gi> avec un attribut <att>xml:id</att> servant d'identifiant. Cet identifiant nous permettra par la suite de faire référence au personnage dans le texte.</p>
+                     <p>Tout comme le <gi>settingDesc</gi> (voir ci-dessous), le <gi>particDesc</gi> sert d'index. Pour plus d'informations quant à son usage, voir la section "Faire référence aux personnages".</p>
+                     <p>Il comprend un élément <gi>listPerson</gi> qui vient lister les personnages principaux du roman-feuilleton. — Si un index plus complet aurait pu renseigner chaque personne, même mineure ou mythologique, évoquée dans le texte, il a été choisi ici de réaliser un index restreint aux personnages principaux doués de parole dans l'extrait. Une exception a été faite pour l'abbé Valreg, oncle du narrateur et évoqué par ce dernier. — Chaque personnage est renseigné dans un élément <gi>person</gi> avec un attribut <att>xml:id</att> servant d'identifiant. Cet identifiant nous permettra par la suite de faire référence au personnage dans le texte.</p>
                      <p>L'élément <gi>person</gi> comprend un ou plusieurs éléments <gi>persName</gi> indiquant les noms désignant un personnage, ainsi qu'une <gi>note</gi> facultative le décrivant brièvement.</p>
-                     <p>Si besoin, un titre de noblesse est indiqué au sein d'un élément <gi>roleName</gi> pourvu de l'attribut <att>type</att> de valeur <val>nobility</val>, tandis que la civilité est indiqué par une valeur <val>honorific</val>.</p>
+                     <p>Si besoin, un titre de noblesse est indiqué au sein d'un élément <gi>roleName</gi> pourvu de l'attribut <att>type</att> de valeur <val>"nobility"</val>, tandis que la civilité est indiqué par une valeur <val>"honorific"</val>.</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <person xml:id="medora">
                            <persName><roleName type="honorific">Miss</roleName> Medora</persName>
@@ -224,8 +205,21 @@
                   
                   <div4>
                      <head>Le <gi>settingDesc</gi></head>
-                     <p>Tout comme le <gi>particDesc</gi>, le <gi>settingDesc</gi> sert d'index. Pour plus d'informations quant à son usage, voir la section "Faire référence aux lieux".</p>
-                     <p>Au sein d'un élément <gi>listPlace</gi>, il vient lister les lieux évoqués dans le roman-feuilleton. Chaque lieu est renseigné dans un élément <gi>place</gi> (avec un attribut <att>xml:id</att> servant d'identifiant) et comprend : </p>
+                     <p>Tout comme le <gi>particDesc</gi> (voir ci-dessus), le <gi>settingDesc</gi> sert d'index. Pour plus d'informations quant à son usage, voir la section "Faire référence aux lieux".</p>
+                     <p>Il comprend un élément <gi>listPlace</gi> qui vient lister les lieux évoqués dans le roman-feuilleton. Chaque lieu identifiable évoqué est renseigné dans un élément <gi>place</gi> (avec un attribut <att>xml:id</att> servant d'identifiant. Cet identifiant nous permettra par la suite de faire référence au lieu dans le texte.</p>
+                     <p>L'élément <gi>place</gi> comrend un élément <gi>placeName</gi> ainsi qu'une <gi>note</gi> facultative venant brièvement décrire le lieu. L'élément <gi>placeName</gi> contient quant à lui un ou plusieurs éléments <gi>name</gi>, indiquant les appellations du lieu. Il comprend également un élément <gi>address</gi>, renseignant quand cela est possible le pays et la ville où se situe le lieu. Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant l'attribut <att>key</att> (la valeur de cet attribut correspondant au code du pays). La ville est indiquée à l'aide d'une balise <gi>settlement</gi> portant l'attribut <att>type</att> de valeur <val>"city"</val>.</p>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <place xml:id="frascati">
+                           <placeName>
+                              <name>Frascati</name>
+                              <address>
+                                 <country key="IT"/>
+                                 <settlement type="city"/>
+                              </address>
+                           </placeName>
+                           <note>Petite ville italienne située non loin de <placeName ref="#rome">Rome</placeName>. <persName ref="#daniella">La Daniella</persName> en est originaire.</note> 
+                        </place>
+                     </egXML>
                   </div4>
                </div3>
             </div2>
@@ -266,7 +260,7 @@
          </div1>
          
          <div1>
-            <head>Eléments</head>
+            <head>Tableau des éléments</head>
             
             <schemaSpec ident="oddbyexample" start="TEI ">
             <moduleRef key="tei"/>
