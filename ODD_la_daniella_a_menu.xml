@@ -210,7 +210,16 @@
                   <div4>
                      <head>Le <gi>particDesc</gi></head>
                      <p>Tout comme le <gi>settingDesc</gi>, le <gi>particDesc</gi> sert d'index. Pour plus d'informations quant à son usage, voir la section "Faire référence aux personnages".</p>
-                     <p>Au sein d'un élément <gi>listPerson</gi>, il vient lister les personnages principaux du roman-feuilleton.</p>
+                     <p>Au sein d'un élément <gi>listPerson</gi>, il vient lister les personnages principaux du roman-feuilleton. Chaque personnage est renseigné dans un élément <gi>person</gi> avec un attribut <att>xml:id</att> servant d'identifiant. Cet identifiant nous permettra par la suite de faire référence au personnage dans le texte.</p>
+                     <p>L'élément <gi>person</gi> comprend un ou plusieurs éléments <gi>persName</gi> indiquant les noms désignant un personnage, ainsi qu'une <gi>note</gi> facultative le décrivant brièvement.</p>
+                     <p>Si besoin, un titre de noblesse est indiqué au sein d'un élément <gi>roleName</gi> pourvu de l'attribut <att>type</att> de valeur <val>nobility</val>, tandis que la civilité est indiqué par une valeur <val>honorific</val>.</p>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <person xml:id="medora">
+                           <persName><roleName type="honorific">Miss</roleName> Medora</persName>
+                           <persName><roleName type="nobility">Princesse</roleName></persName>
+                           <note>Nièce de <persName ref ="#B"><roleName type="nobility">lord</roleName> B***</persName> et <persName ref="#harriet"><roleName type="nobility">lady</roleName> Harriet</persName>, elle s'éprend de <persName ref="#valreg">Jean Valreg</persName> au début de l'histoire.</note>
+                        </person>
+                     </egXML>
                   </div4>
                   
                   <div4>
