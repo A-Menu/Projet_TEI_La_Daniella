@@ -37,9 +37,10 @@ Lieux :
 
 -------------------------------------------------------------
 
-----> penser à dire si un attribut est obligatoire ou facultatif
+----> penser à dire si un attribut est obligatoire ou facultatif, si il est ouvert ou fermé, pourquoi etc.
 ----> reprendre le teiHeader
 ----> checker les italic (font ou pas font ?) dans la TEI et l'ODD ; idem pour le date when.
+----> Faire un front et back .. ?
 
 
 Livrables pour le devoir

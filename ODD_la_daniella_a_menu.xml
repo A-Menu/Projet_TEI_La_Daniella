@@ -7,7 +7,7 @@
          <titleStmt>
             <title type="main">Guide d'encodage du roman-feuilleton "La Daniella", écrit par George
                Sand et publié par <emph rend="italic">La Presse</emph> (numéro du <date
-                  when="1857-01-14">14 janvier 1857</date>).</title>
+                  when-iso="1857-01-14">14 janvier 1857</date>).</title>
             <title type="sub">ODD créée avec ODD by Example</title>
             <author>
                <persName xml:id="a_menu">
@@ -354,8 +354,9 @@
                <head>Faire référence aux personnages et aux lieux</head>
                <p><emph style="italic">Note préliminaire</emph> : voir les sections "Le particDesc"
                   et "Le settingDesc" pour une meilleure compréhension.</p>
-               <p>Le référencement des personnages et des lieux fonctionne sur un système similaire
-                  ; il sera cependant explicité pour chaque cas pour plus de clarté :</p>
+               <p>Le référencement des personnages et des lieux fonctionne sur un système
+                  relativement similaire ; il sera cependant explicité pour chaque cas pour plus de
+                  clarté :</p>
 
                <div3>
                   <head>Faire référence aux personnages</head>
@@ -364,9 +365,9 @@
                      <head>La référence directe</head>
                      <p>Elle consiste en la mention directe de l'une des appellations d'un
                         personnage. Ces appellations ont été préalablement définies dans le
-                        teiHeader à l'aide d'éléments <gi>persName</gi>(voir la section "Le
-                        particDesc"). L'appellation est alors encadrée d'une balise
-                           <gi>persName</gi> dont l'attribut <att>ref</att> fait référence à
+                        teiHeader à l'aide d'éléments <gi>persName</gi> (voir la section "Le
+                        particDesc"). Dans le corps du texte, l'appellation est alors encadrée d'une
+                        balise <gi>persName</gi> dont l'attribut <att>ref</att> fait référence à
                         l'identifiant du personnage en question. Si l'appellation comporte un titre
                         de noblesse ou une civilité, ceux-ci sont également encodés à l'aide d'une
                         balise <gi>roleName</gi> nichée au sein de l'élément <gi>persName</gi> (voir
@@ -413,7 +414,38 @@
 
                <div3>
                   <head>Faire référence aux lieux</head>
-                  <p/>
+                  <p>Tout comme pour les personnages, les lieux furent considérés dans leurs
+                     mentions directes et indirectes :</p>
+                  <div4>
+                     <head>La référence directe</head>
+                     <p>Elle consiste en la mention directe de l'une des appellations d'un lieu. Ces
+                        appellations ont été préalablement définies dans le teiHeader à l'aide
+                        d'éléments <gi>name</gi> (voir la section "Le settingDesc"). Dans le corps
+                        du texte, l'appellation est alors encadrée d'une balise <gi>placeName</gi>
+                        dont l'attribut <att>ref</att> fait référence à l'identifiant du lieu en
+                        question.</p>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <placeName ref="#saint_ange">château Saint-Ange</placeName>
+                     </egXML>
+                  </div4>
+
+                  <div4>
+                     <head>La référence indirecte</head>
+                     <p>Elle consiste en la mention indirecte de l'un des lieux définis
+                        préalablement dans le <gi>settingDesc</gi>. Cette mention est indirecte car
+                        elle n'utilise pas l'une des appellations définies par un élément
+                           <gi>pname</gi> dans le <gi>settingDesc</gi>. Elle est alors indiquée à
+                        l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est alors
+                        obligatoirement <val>"place"</val>. Un second attribut <att>ref</att> vient
+                        quant à lui indiquer l'identifiant du lieu évoqué.</p>
+                     <p>Note importante : ne furent considérées comme étant des références
+                        indirectes uniquements les noms communs (avec éventuellement un sujet s'y
+                        rapportant) faisant référence à un lieu défini. Les simples pronoms s'y
+                        référant ne furent donc pas considérés.</p>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <rs type="place" ref="#palais_b">palais</rs>
+                     </egXML>
+                  </div4>
                </div3>
             </div2>
 
@@ -528,7 +560,6 @@
                <elementSpec ident="persName" mode="change">
                   <attList>
                      <attDef ident="facs" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                      <attDef ident="full" mode="change">
                         <valList mode="add" type="closed">
@@ -585,7 +616,6 @@
                </elementSpec>
                <elementSpec ident="placeName" mode="change">
                   <attList>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="full" mode="change">
@@ -602,7 +632,6 @@
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="ref" mode="delete"/>
                      <attDef ident="type" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -616,7 +645,6 @@
                            <valItem ident="city"/>
                         </valList>
                      </attDef>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -630,7 +658,6 @@
                            <valItem ident="arrondissement"/>
                         </valList>
                      </attDef>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -850,14 +877,6 @@
                      <attDef ident="group" mode="delete"/>
                   </attList>
                </classSpec>
-               <classSpec ident="att.datable.w3c" type="atts" mode="change">
-                  <attList>
-                     <attDef ident="notBefore" mode="delete"/>
-                     <attDef ident="notAfter" mode="delete"/>
-                     <attDef ident="from" mode="delete"/>
-                     <attDef ident="to" mode="delete"/>
-                  </attList>
-               </classSpec>
                <classSpec ident="att.datable" type="atts" mode="change">
                   <attList>
                      <attDef ident="calendar" mode="delete"/>
@@ -992,7 +1011,6 @@
                      </attDef>
                      <attDef ident="key" mode="delete"/>
                      <attDef ident="ref" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                      <attDef ident="type" mode="delete"/>
                   </attList>
@@ -1062,7 +1080,6 @@
                   <attList>
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="key" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -1078,7 +1095,6 @@
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="key" mode="delete"/>
                      <attDef ident="ref" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -1100,7 +1116,6 @@
                      </attDef>
                      <attDef ident="key" mode="delete"/>
                      <attDef ident="ref" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -1184,7 +1199,6 @@
                <elementSpec ident="licence" mode="change">
                   <attList>
                      <attDef ident="facs" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -1246,7 +1260,6 @@
                <elementSpec ident="creation" mode="change">
                   <attList>
                      <attDef ident="facs" mode="delete"/>
-                     <attDef ident="when" mode="delete"/>
                      <attDef ident="when-iso" mode="delete"/>
                   </attList>
                </elementSpec>
