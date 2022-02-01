@@ -453,14 +453,14 @@
                   <reg>è</reg>
                </choice>ge auprès de la <rs type="person" ref="#daniella">soubrette</rs>, dont la
                frayeur ne se manifestait que par des torren<choice>
-                  <orig></orig>
+                  <orig/>
                   <reg>t</reg>
                </choice>s de larmes. </p>
 
             <p> Je n’eus guère le temps de m’occuper de ses nerfs. </p>
 
             <p> Rencontrer la diligence, l’arrêter, raconter l’aventure, et reprendre les devan<choice>
-                  <orig></orig>
+                  <orig/>
                   <reg>t</reg>
                </choice>s pour montrer au conducteur et aux voyageurs la preuve des faits déclarés,
                tout cela fut accompli en moins d’un quart d’heure. Mais, ô surprise ! comme on dit
@@ -480,7 +480,7 @@
                voyageurs ajoutaient foi à ma parole ; d’autres se disaient tout bas, en riant, que
                nous avions rêvé bataille, et qu’une panique nous avait troublé la cervelle. Quelques
                bergers, à la recherche de leurs troupeaux erran<choice>
-                  <orig></orig>
+                  <orig/>
                   <reg>t</reg>
                </choice>s, riaient aussi et juraient n’avoir rien vu, rien entendu. <persName
                   ref="#B"><roleName type="nobility">Lord</roleName> B***</persName> avait fort
@@ -547,7 +547,7 @@
                      ref="#harriet">ma femme</rs> et ma<rs type="person" ref="#medora"> nièce</rs>
                   au logement qui les attendait. À présent, je viens vous chercher de leur part.
                   Est-ce que vous avez ici des paren<choice>
-                     <orig></orig>
+                     <orig/>
                      <reg>t</reg>
                   </choice>s ou des amis qui vous réclament ?»</said>
             </p>
@@ -582,7 +582,7 @@
             <p>
                <persName ref="#brumieres">Brumières</persName> ne se le fit pas répéter. Nous voilà
                aussitôt en route, à pied, dans les rues de <placeName ref="#rome">Rome</placeName>, suivi<choice>
-                  <sic></sic>
+                  <sic/>
                   <corr>s</corr>
                </choice> de <foreign xml:lang="it"><emph style="font-style: italic"
                   >facchini</emph></foreign> portant nos malles, et de <persName ref="#tartaglia"
@@ -640,7 +640,7 @@
                   <orig>î</orig>
                   <reg>i</reg>
                </choice>îmen<choice>
-                  <orig></orig>
+                  <orig/>
                   <reg>t</reg>
                </choice>s m’ont été plus agréables, parce qu’ils m’ont paru plus sincères. Comme je
                lui faisais observer qu’avec sa présence d’esprit et sa manière d’employer le bâton,
@@ -678,10 +678,11 @@
                   Harriet</persName>. </p>
 
             <p>
-               <said who="#B" aloud="true" direct="true" toWhom="#valreg">— Ma femme dit que c’est
-                  une honte</said>, reprit-il. <said who="#B" aloud="true" direct="true"
-                  toWhom="#valreg">Les femmes trouvent tout naturel qu’on se fasse égorger pour
-                  sauver leurs diamants, pendant qu’elles se trouvent mal sur vos bras.</said>
+               <said who="#B" aloud="true" direct="true" toWhom="#valreg">— Ma <rs type="person"
+                     ref="#harriet">femme</rs> dit que c’est une honte</said>, reprit-il. <said
+                  who="#B" aloud="true" direct="true" toWhom="#valreg">Les femmes trouvent tout
+                  naturel qu’on se fasse égorger pour sauver leurs diamants, pendant qu’elles se
+                  trouvent mal sur vos bras.</said>
             </p>
 
             <p>
@@ -904,7 +905,7 @@
                   moitié. Vous pouvez donc être libre et seul dans tout un étage, qui ne communique
                   pas même <choice>
                      <sic>pas </sic>
-                     <corr></corr>
+                     <corr/>
                   </choice>avec le nôtre, si l’on veut faire vie à part. Vous n’accepterez notre
                   table et notre <rs type="person" ref="#harriet #B">société</rs> qu’autant qu’il
                   vous plaira, pas du tout si nous vous ennuyons. Mais, pour ne pas nous causer un
@@ -1031,7 +1032,7 @@
                      style="font-style: italic">frittorie</emph></foreign> en plein air, ornées de
                feuillages et de banderol<choice>
                   <orig>l</orig>
-                  <reg></reg>
+                  <reg/>
                </choice>es. J’ai longé la base de la colonnade de la place <placeName
                   ref="#saint_pierre">Saint-Pierre</placeName>, qui paraît une chose puissante, même
                vue ainsi en courant. J’ai passé au pied du <placeName ref="#saint_ange">château
@@ -1042,24 +1043,25 @@
                   toWhom="#valreg">«J’ai tant étudié la <placeName ref="#rome">Rome</placeName>
                   païenne et catholique <choice>
                      <sic>» </sic>
-                     <corr></corr>
+                     <corr/>
                   </choice>que je la connais, je la vois ; je rêve quelquefois <choice>
                      <sic>» </sic>
-                     <corr></corr>
+                     <corr/>
                   </choice>que j’y suis, et je m’y promène comme dans <choice>
                      <sic>» </sic>
-                     <corr></corr>
+                     <corr/>
                   </choice><placeName ref="#paris">Paris</placeName>. Au réveil, il me reste une
                   impression de <choice>
                      <sic>» </sic>
-                     <corr></corr>
+                     <corr/>
                   </choice>bien-être et d’enthousiasme, de lumière et de <choice>
                      <sic>» </sic>
-                     <corr></corr>
+                     <corr/>
                   </choice> grandeur.»</said>
-               <said who="#valreg" aloud="false" direct="true">— C’est donc demain que je vais m’éveiller, moi,
-                  dans ce beau rêve ! Je ne le crois pas encore. Le morne silence qui règne déjà au
-                  dehors me fait douter si je ne suis pas encore dans la campagne romaine.</said>
+               <said who="#valreg" aloud="false" direct="true">— C’est donc demain que je vais
+                  m’éveiller, moi, dans ce beau rêve ! Je ne le crois pas encore. Le morne silence
+                  qui règne déjà au dehors me fait douter si je ne suis pas encore dans la campagne
+                  romaine.</said>
             </p>
 
          </div>

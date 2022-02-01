@@ -37,7 +37,9 @@ Lieux :
 
 -------------------------------------------------------------
 
-----> penser à mettre emph et mots en langue étrangère dans l'ODD !! 
+----> penser à dire si un attribut est obligatoire ou facultatif
+----> reprendre le teiHeader
+----> checker les italic (font ou pas font ?) dans la TEI et l'ODD ; idem pour le date when.
 
 
 Livrables pour le devoir
