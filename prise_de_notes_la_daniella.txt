@@ -37,8 +37,7 @@ Lieux :
 
 -------------------------------------------------------------
 
-- Attention aux mots coupés par des "-" au moment de chercher remplacer !!
-- penser aux titres de chapitres (mettre la signature de Sand ?)
+----> penser à mettre emph et mots en langue étrangère dans l'ODD !! 
 
 
 Livrables pour le devoir
