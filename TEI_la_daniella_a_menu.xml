@@ -543,10 +543,10 @@
                      type="nobility">lord</roleName> B***</persName>, qui, muni d’un laissez-passer,
                avait disparu depuis longtemps, me frappa amicalement sur l’épaule en me disant :
                   <said who="#B" aloud="true" direct="true" toWhom="#valreg">«Je viens de faire ma
-                     déclaration relativement à nos brigands, et de conduire ma<rs type="person"
-                     ref="#harriet"> femme</rs> et ma<rs type="person" ref="#medora"> nièce</rs>
-                  au logement qui les attendait. À présent, je viens vous chercher de leur part.
-                  Est-ce que vous avez ici des paren<choice>
+                  déclaration relativement à nos brigands, et de conduire ma<rs type="person"
+                     ref="#harriet"> femme</rs> et ma<rs type="person" ref="#medora"> nièce</rs> au
+                  logement qui les attendait. À présent, je viens vous chercher de leur part. Est-ce
+                  que vous avez ici des paren<choice>
                      <orig/>
                      <reg>t</reg>
                   </choice>s ou des amis qui vous réclament ?»</said>

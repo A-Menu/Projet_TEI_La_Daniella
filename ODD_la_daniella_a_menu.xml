@@ -352,7 +352,8 @@
 
             <div2>
                <head>Faire référence aux personnages et aux lieux</head>
-               <p><emph style="italic">Note préliminaire</emph>: voir les sections "Le particDesc" et "Le settingDesc" pour une meilleure compréhension.</p>
+               <p><emph style="italic">Note préliminaire</emph> : voir les sections "Le particDesc"
+                  et "Le settingDesc" pour une meilleure compréhension.</p>
                <p>Le référencement des personnages et des lieux fonctionne sur un système similaire
                   ; il sera cependant explicité pour chaque cas pour plus de clarté :</p>
 
@@ -361,10 +362,10 @@
                   <p>Deux types de références furent encodés : </p>
                   <div4>
                      <head>La référence directe</head>
-                     <p>Elle consiste en la mention directe de l'une des
-                        appellations d'un personnage. Ces appellations ont été préalablement
-                        définies dans le teiHeader à l'aide d'éléments <gi>persName</gi>(voir la
-                        section "Le particDesc"). L'appellation est alors encadrée d'une balise
+                     <p>Elle consiste en la mention directe de l'une des appellations d'un
+                        personnage. Ces appellations ont été préalablement définies dans le
+                        teiHeader à l'aide d'éléments <gi>persName</gi>(voir la section "Le
+                        particDesc"). L'appellation est alors encadrée d'une balise
                            <gi>persName</gi> dont l'attribut <att>ref</att> fait référence à
                         l'identifiant du personnage en question. Si l'appellation comporte un titre
                         de noblesse ou une civilité, ceux-ci sont également encodés à l'aide d'une
@@ -380,22 +381,30 @@
 
                   <div4>
                      <head>La référence indirecte</head>
-                     <p>Elle consiste en la mention indirecte de l'un des personnages définis préalablement dans le <gi>particDesc</gi>. Cette mention est indirecte car elle n'utilise pas l'une des appellations définies par un élément <gi>persName</gi> dans le <gi>particDesc</gi>. Elle est alors indiquée à l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est alors obligatoirement <val>"person"</val>. Un second attribut <att>ref</att> vient quant à lui indiquer l'identifiant du personnage évoqué.</p>
-                     <p>Note importante : ne furent considérées comme étant des références indirectes uniquements les noms communs (avec éventuellement un sujet s'y rapportant) faisant référence à un personnage. Les pronoms ou simples adjectifs ne furent donc pas considérés.</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        Ma <rs type="person"
+                     <p>Elle consiste en la mention indirecte de l'un des personnages définis
+                        préalablement dans le <gi>particDesc</gi>. Cette mention est indirecte car
+                        elle n'utilise pas l'une des appellations définies par un élément
+                           <gi>persName</gi> dans le <gi>particDesc</gi>. Elle est alors indiquée à
+                        l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est alors
+                        obligatoirement <val>"person"</val>. Un second attribut <att>ref</att> vient
+                        quant à lui indiquer l'identifiant du personnage évoqué.</p>
+                     <p>Note importante : ne furent considérées comme étant des références
+                        indirectes uniquements les noms communs (avec éventuellement un sujet s'y
+                        rapportant) faisant référence à un personnage. Les pronoms ou simples
+                        adjectifs ne furent donc pas considérés.</p>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> Ma <rs type="person"
                            ref="#harriet">femme</rs>
                      </egXML>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        La <rs type="person"
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> La <rs type="person"
                            ref="#daniella">femme de chambre italienne</rs>
                      </egXML>
-                     <p>Il est par ailleurs possible de faire référence à plusieurs personnes à la fois en multipliant les valeurs de l'attribut <att>ref</att> :</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        mes<rs type="person" ref="#harriet #B"> Anglais</rs>
+                     <p>Il est par ailleurs possible de faire référence à plusieurs personnes à la
+                        fois en multipliant les valeurs de l'attribut <att>ref</att> :</p>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> mes<rs type="person"
+                           ref="#harriet #B"> Anglais</rs>
                      </egXML>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        sa <rs type="person" ref="#B #medora">famille</rs>
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> sa <rs type="person"
+                           ref="#B #medora">famille</rs>
                      </egXML>
 
                   </div4>
