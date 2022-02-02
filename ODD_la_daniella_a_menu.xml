@@ -314,220 +314,228 @@
                   roman lui-même. Ces éléments, qui auraient également pu figurer dans la balise
                      <gi>body</gi> dans des <gi>div</gi>, ne furent finalement pas encodés afin de
                   se concentrer uniquement sur le roman lui-même.</p>
-            </div2>
 
-            <div2>
-               <head>Structurer le texte encodé</head>
-               <p>Comme évoqué dans la section précédente, seul le texte relevant du roman lui-même
-                  fut encodé. Il fut structuré en <gi>div</gi>, chaque <gi>div</gi> représentant un
-                  chapitre, comme indiqué par leur attribut <att>type</att> de valeur
-                     <val>"chapter"</val>, tandis qu'un second attribut <att>n</att> vient
-                  renseigner le numéro du chapitre (<val>"8"</val> en l'espèce).</p>
-               <p>L'en-tête du chapitre est indiqué dans l'élément <gi>head</gi>. Chaque paragraphe
-                  est quant à lui inséré dans un élément <gi>p</gi>.</p>
-               <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                  <div type="chapter" n="8">
-                     <head>VIII (Suite).</head>
-                     <p>
-                        <!-- Corps du paragraphe -->
-                     </p>
-                     <p>
-                        <!-- etc. -->
-                     </p>
-                  </div>
-               </egXML>
-               <p>Le texte fut initialement encodé en respectant la mise en page du journal. Ainsi,
-                  les débuts de page étaient indiqués avec une balise <gi>lb</gi> (qui renseignait
-                  également le facsimilé via l'attribut <att>facs</att>), les débuts de colonne avec
-                  une balise <gi>cb</gi> et les nombreux débuts de ligne avec une balise
-                  <gi>lb</gi>. Cette façon de procéder avait pour défaut majeur de reproduire les
-                  césures de fin de ligne ; ainsi un mot écrit sur deux lignes se voyait également
-                  coupé dans l'encodage par le trait d'union (quand bien même on donnait à la balise
-                     <gi>lb</gi> un attribut <att>rend</att> de valeur <val>"hyphen"</val>). En plus
-                  de diminuer la lisibilité, ceci diminuait considérablement les possibilités de
-                  fouille textuelle sur le document. Cette structuration imitant à la lettre la mise
-                  ne page originale fut donc abandonnée pour favoriser le texte du roman
-                  lui-même.</p>
-            </div2>
-
-            <div2>
-               <head>Faire référence aux personnages et aux lieux</head>
-               <p><emph style="italic">Note préliminaire</emph> : voir les sections "Le particDesc"
-                  et "Le settingDesc" pour une meilleure compréhension.</p>
-               <p>Le référencement des personnages et des lieux fonctionne sur un système
-                  relativement similaire ; il sera cependant explicité pour chaque cas pour plus de
-                  clarté :</p>
 
                <div3>
-                  <head>Faire référence aux personnages</head>
-                  <p>Deux types de références furent encodés : </p>
-                  <div4>
-                     <head>La référence directe</head>
-                     <p>Elle consiste en la mention directe de l'une des appellations d'un
-                        personnage. Ces appellations ont été préalablement définies dans le
-                        teiHeader à l'aide d'éléments <gi>persName</gi> (voir la section "Le
-                        particDesc"). Dans le corps du texte, l'appellation est alors encadrée d'une
-                        balise <gi>persName</gi> dont l'attribut <att>ref</att> fait référence à
-                        l'identifiant du personnage en question. Si l'appellation comporte un titre
-                        de noblesse ou une civilité, ceux-ci sont également encodés à l'aide d'une
-                        balise <gi>roleName</gi> nichée au sein de l'élément <gi>persName</gi> (voir
-                        la section "Le particDesc" pour plus d'informations).</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        <persName ref="#tartaglia">Tartaglia</persName>
-                     </egXML>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        <persName ref="#B"><roleName type="nobility">lord</roleName> B***</persName>
-                     </egXML>
-                  </div4>
-
-                  <div4>
-                     <head>La référence indirecte</head>
-                     <p>Elle consiste en la mention indirecte de l'un des personnages définis
-                        préalablement dans le <gi>particDesc</gi>. Cette mention est indirecte car
-                        elle n'utilise pas l'une des appellations définies par un élément
-                           <gi>persName</gi> dans le <gi>particDesc</gi>. Elle est alors indiquée à
-                        l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est alors
-                        obligatoirement <val>"person"</val>. Un second attribut <att>ref</att> vient
-                        quant à lui indiquer l'identifiant du personnage évoqué.</p>
-                     <p>Note importante : ne furent considérées comme étant des références
-                        indirectes uniquements les noms communs (avec éventuellement un sujet s'y
-                        rapportant) faisant référence à un personnage. Les pronoms ou simples
-                        adjectifs ne furent donc pas considérés.</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> Ma <rs type="person"
-                           ref="#harriet">femme</rs>
-                     </egXML>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> La <rs type="person"
-                           ref="#daniella">femme de chambre italienne</rs>
-                     </egXML>
-                     <p>Il est par ailleurs possible de faire référence à plusieurs personnes à la
-                        fois en multipliant les valeurs de l'attribut <att>ref</att> :</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> mes<rs type="person"
-                           ref="#harriet #B"> Anglais</rs>
-                     </egXML>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples"> sa <rs type="person"
-                           ref="#B #medora">famille</rs>
-                     </egXML>
-
-                  </div4>
-
+                  <head>Structurer le texte encodé</head>
+                  <p>Comme évoqué dans la section précédente, seul le texte relevant du roman
+                     lui-même fut encodé. Il fut structuré en <gi>div</gi>, chaque <gi>div</gi>
+                     représentant un chapitre, comme indiqué par leur attribut <att>type</att> de
+                     valeur <val>"chapter"</val>, tandis qu'un second attribut <att>n</att> vient
+                     renseigner le numéro du chapitre (<val>"8"</val> en l'espèce).</p>
+                  <p>L'en-tête du chapitre est indiqué dans l'élément <gi>head</gi>. Chaque
+                     paragraphe est quant à lui inséré dans un élément <gi>p</gi>.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <div type="chapter" n="8">
+                        <head>VIII (Suite).</head>
+                        <p>
+                           <!-- Corps du paragraphe -->
+                        </p>
+                        <p>
+                           <!-- etc. -->
+                        </p>
+                     </div>
+                  </egXML>
+                  <p>Le texte fut initialement encodé en respectant la mise en page du journal.
+                     Ainsi, les débuts de page étaient indiqués avec une balise <gi>lb</gi> (qui
+                     renseignait également le facsimilé via l'attribut <att>facs</att>), les débuts
+                     de colonne avec une balise <gi>cb</gi> et les nombreux débuts de ligne avec une
+                     balise <gi>lb</gi>. Cette façon de procéder avait pour défaut majeur de
+                     reproduire les césures de fin de ligne ; ainsi un mot écrit sur deux lignes se
+                     voyait également coupé dans l'encodage par le trait d'union (quand bien même on
+                     donnait à la balise <gi>lb</gi> un attribut <att>rend</att> de valeur
+                        <val>"hyphen"</val>). En plus de diminuer la lisibilité, ceci diminuait
+                     considérablement les possibilités de fouille textuelle sur le document. Cette
+                     structuration imitant à la lettre la mise ne page originale fut donc abandonnée
+                     pour favoriser le texte du roman lui-même.</p>
                </div3>
 
                <div3>
-                  <head>Faire référence aux lieux</head>
-                  <p>Tout comme pour les personnages, les lieux furent considérés dans leurs
-                     mentions directes et indirectes :</p>
+                  <head>Faire référence aux personnages et aux lieux</head>
+                  <p><emph style="italic">Note préliminaire</emph> : voir les sections "Le
+                     particDesc" et "Le settingDesc" pour une meilleure compréhension.</p>
+                  <p>Le référencement des personnages et des lieux fonctionne sur un système
+                     relativement similaire ; il sera cependant explicité pour chaque cas pour plus
+                     de clarté :</p>
+
                   <div4>
-                     <head>La référence directe</head>
-                     <p>Elle consiste en la mention directe de l'une des appellations d'un lieu. Ces
-                        appellations ont été préalablement définies dans le teiHeader à l'aide
-                        d'éléments <gi>name</gi> (voir la section "Le settingDesc"). Dans le corps
-                        du texte, l'appellation est alors encadrée d'une balise <gi>placeName</gi>
-                        dont l'attribut <att>ref</att> fait référence à l'identifiant du lieu en
-                        question.</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        <placeName ref="#saint_ange">château Saint-Ange</placeName>
-                     </egXML>
+                     <head>Faire référence aux personnages</head>
+                     <p>Deux types de références furent encodés : </p>
+                     <div5>
+                        <head>La référence directe</head>
+                        <p>Elle consiste en la mention directe de l'une des appellations d'un
+                           personnage. Ces appellations ont été préalablement définies dans le
+                           teiHeader à l'aide d'éléments <gi>persName</gi> (voir la section "Le
+                           particDesc"). Dans le corps du texte, l'appellation est alors encadrée
+                           d'une balise <gi>persName</gi> dont l'attribut <att>ref</att> fait
+                           référence à l'identifiant du personnage en question. Si l'appellation
+                           comporte un titre de noblesse ou une civilité, ceux-ci sont également
+                           encodés à l'aide d'une balise <gi>roleName</gi> nichée au sein de
+                           l'élément <gi>persName</gi> (voir la section "Le particDesc" pour plus
+                           d'informations).</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           <persName ref="#tartaglia">Tartaglia</persName>
+                        </egXML>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           <persName ref="#B"><roleName type="nobility">lord</roleName>
+                              B***</persName>
+                        </egXML>
+                     </div5>
+
+                     <div5>
+                        <head>La référence indirecte</head>
+                        <p>Elle consiste en la mention indirecte de l'un des personnages définis
+                           préalablement dans le <gi>particDesc</gi>. Cette mention est indirecte
+                           car elle n'utilise pas l'une des appellations définies par un élément
+                              <gi>persName</gi> dans le <gi>particDesc</gi>. Elle est alors indiquée
+                           à l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est
+                           alors obligatoirement <val>"person"</val>. Un second attribut
+                              <att>ref</att> vient quant à lui indiquer l'identifiant du personnage
+                           évoqué.</p>
+                        <p>Note importante : ne furent considérées comme étant des références
+                           indirectes uniquements les noms communs (avec éventuellement un sujet s'y
+                           rapportant) faisant référence à un personnage. Les pronoms ou simples
+                           adjectifs ne furent donc pas considérés.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"> Ma <rs type="person"
+                              ref="#harriet">femme</rs>
+                        </egXML>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"> La <rs type="person"
+                              ref="#daniella">femme de chambre italienne</rs>
+                        </egXML>
+                        <p>Il est par ailleurs possible de faire référence à plusieurs personnes à
+                           la fois en multipliant les valeurs de l'attribut <att>ref</att> :</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"> mes<rs type="person"
+                              ref="#harriet #B"> Anglais</rs>
+                        </egXML>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"> sa <rs type="person"
+                              ref="#B #medora">famille</rs>
+                        </egXML>
+
+                     </div5>
+
                   </div4>
 
                   <div4>
-                     <head>La référence indirecte</head>
-                     <p>Elle consiste en la mention indirecte de l'un des lieux définis
-                        préalablement dans le <gi>settingDesc</gi>. Cette mention est indirecte car
-                        elle n'utilise pas l'une des appellations définies par un élément
-                           <gi>pname</gi> dans le <gi>settingDesc</gi>. Elle est alors indiquée à
-                        l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est alors
-                        obligatoirement <val>"place"</val>. Un second attribut <att>ref</att> vient
-                        quant à lui indiquer l'identifiant du lieu évoqué.</p>
-                     <p>Note importante : ne furent considérées comme étant des références
-                        indirectes uniquements les noms communs (avec éventuellement un sujet s'y
-                        rapportant) faisant référence à un lieu défini. Les simples pronoms s'y
-                        référant ne furent donc pas considérés.</p>
-                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        <rs type="place" ref="#palais_b">palais</rs>
-                     </egXML>
+                     <head>Faire référence aux lieux</head>
+                     <p>Tout comme pour les personnages, les lieux furent considérés dans leurs
+                        mentions directes et indirectes :</p>
+                     <div5>
+                        <head>La référence directe</head>
+                        <p>Elle consiste en la mention directe de l'une des appellations d'un lieu.
+                           Ces appellations ont été préalablement définies dans le teiHeader à
+                           l'aide d'éléments <gi>name</gi> (voir la section "Le settingDesc"). Dans
+                           le corps du texte, l'appellation est alors encadrée d'une balise
+                              <gi>placeName</gi> dont l'attribut <att>ref</att> fait référence à
+                           l'identifiant du lieu en question.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           <placeName ref="#saint_ange">château Saint-Ange</placeName>
+                        </egXML>
+                     </div5>
+
+                     <div5>
+                        <head>La référence indirecte</head>
+                        <p>Elle consiste en la mention indirecte de l'un des lieux définis
+                           préalablement dans le <gi>settingDesc</gi>. Cette mention est indirecte
+                           car elle n'utilise pas l'une des appellations définies par un élément
+                              <gi>pname</gi> dans le <gi>settingDesc</gi>. Elle est alors indiquée à
+                           l'aide d'un élément <gi>rs</gi>, dont l'attribut <att>type</att> est
+                           alors obligatoirement <val>"place"</val>. Un second attribut
+                              <att>ref</att> vient quant à lui indiquer l'identifiant du lieu
+                           évoqué.</p>
+                        <p>Note importante : ne furent considérées comme étant des références
+                           indirectes uniquements les noms communs (avec éventuellement un sujet s'y
+                           rapportant) faisant référence à un lieu défini. Les simples pronoms s'y
+                           référant ne furent donc pas considérés.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           <rs type="place" ref="#palais_b">palais</rs>
+                        </egXML>
+                     </div5>
                   </div4>
                </div3>
-            </div2>
 
 
-            <div2>
-               <head>Encoder la parole</head>
-               <p>Les paroles des personnages sont rapportées au sein d'éléments <gi>said</gi>. Dans
-                  le cas où les paroles sont indiquées par des guillemets ou un tiret, ceux-ci sont
-                  également intégrés dans l'élément. L'élément <gi>said</gi> a été pourvue de
-                  nombreux attributs afin de préciser son contexte :</p>
-               <p>Un attribut <att>who</att>, dont la valeur fait référence à l'identifiant du
-                  locuteur.</p>
-               <p>Un attribut <att>aloud</att> venant indiquer si les paroles ont été prononcées à
-                  voix haute (sa valeur est alors <val>"true"</val>) ou non (sa valeur est alors de
-                     <val>"false"</val>).</p>
-               <p>Un attribut <att>direct</att> venant indiquer si le discours est direct (sa valeur
-                  est alors <val>"true"</val>) ou rapporté (sa valeur est alors
-                  <val>"false"</val>).</p>
-               <p>Un attribut <att>toWhom</att>, dont la valeur fait référence à l'identifiant de
-                  l'auditeur.</p>
-               <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                  <said who="#harriet" aloud="true" direct="true" toWhom="#B">— Ah ! ciel !</said>
-                  s’écria <persName ref="#harriet"><roleName type="nobility">lady</roleName>
-                     Harriet</persName>, <said who="#harriet" aloud="true" direct="true" toWhom="#B"
-                     >encore cette odieuse bête ! Elle vous a suivi !</said>
-               </egXML>
-            </div2>
+               <div3>
+                  <head>Encoder la parole</head>
+                  <p>Les paroles des personnages sont rapportées au sein d'éléments <gi>said</gi>.
+                     Dans le cas où les paroles sont indiquées par des guillemets ou un tiret,
+                     ceux-ci sont également intégrés dans l'élément. L'élément <gi>said</gi> a été
+                     pourvue de nombreux attributs afin de préciser son contexte :</p>
+                  <p>Un attribut <att>who</att>, dont la valeur fait référence à l'identifiant du
+                     locuteur.</p>
+                  <p>Un attribut <att>aloud</att> venant indiquer si les paroles ont été prononcées
+                     à voix haute (sa valeur est alors <val>"true"</val>) ou non (sa valeur est
+                     alors de <val>"false"</val>).</p>
+                  <p>Un attribut <att>direct</att> venant indiquer si le discours est direct (sa
+                     valeur est alors <val>"true"</val>) ou rapporté (sa valeur est alors
+                        <val>"false"</val>).</p>
+                  <p>Un attribut <att>toWhom</att>, dont la valeur fait référence à l'identifiant de
+                     l'auditeur.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <said who="#harriet" aloud="true" direct="true" toWhom="#B">— Ah ! ciel
+                        !</said> s’écria <persName ref="#harriet"><roleName type="nobility"
+                           >lady</roleName> Harriet</persName>, <said who="#harriet" aloud="true"
+                        direct="true" toWhom="#B">encore cette odieuse bête ! Elle vous a suivi
+                        !</said>
+                  </egXML>
+               </div3>
 
-            <div2>
-               <head>Rectifier l'orthographe et la syntaxe du texte source</head>
+               <div3>
+                  <head>Rectifier l'orthographe et la syntaxe du texte source</head>
 
-               <p>Au fil de la lecture de <emph rend="italic">La Daniella</emph>, un certain nombre
-                  de mots et signes de ponctuation se sont avérés être erronés au regard de notre
-                  grammaire actuelle. Ces corrections apportées au texte original figurent dans les
-                  éléments <gi>choice</gi></p>
-               <p>Ces derniers peuvent ensuite abriter deux paires d'éléments différents :</p>
-               <p>Pour rectifier une erreur manifeste, cette dernière est encadrée d'une balise
-                     <gi>sic</gi>, tandis que la correction est injectée dans une balise
-                     <gi>corr</gi>.</p>
-               <egXML xmlns="http://www.tei-c.org/ns/Examples"> suivi<choice>
-                     <sic/>
-                     <corr>s</corr>
-                  </choice>
-               </egXML>
-               <p>Si ce qui est perçu comme une erreur semble résulter d'une évolution de la langue,
-                  alors l'ancienne version est indiquée dans une balise <gi>orig</gi>, tadis que la
-                  nouvelle est renseignée dans une balise <gi>reg</gi>.</p>
-               <egXML xmlns="http://www.tei-c.org/ns/Examples"> torren<choice>
-                     <orig/>
-                     <reg>t</reg>
-                  </choice>s </egXML>
-            </div2>
+                  <p>Au fil de la lecture de <emph rend="italic">La Daniella</emph>, un certain
+                     nombre de mots et signes de ponctuation se sont avérés être erronés au regard
+                     de notre grammaire actuelle. Ces corrections apportées au texte original
+                     figurent dans les éléments <gi>choice</gi></p>
+                  <p>Ces derniers peuvent ensuite abriter deux paires d'éléments différents :</p>
+                  <p>Pour rectifier une erreur manifeste, cette dernière est encadrée d'une balise
+                        <gi>sic</gi>, tandis que la correction est injectée dans une balise
+                        <gi>corr</gi>.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples"> suivi<choice>
+                        <sic/>
+                        <corr>s</corr>
+                     </choice>
+                  </egXML>
+                  <p>Si ce qui est perçu comme une erreur semble résulter d'une évolution de la
+                     langue, alors l'ancienne version est indiquée dans une balise <gi>orig</gi>,
+                     tadis que la nouvelle est renseignée dans une balise <gi>reg</gi>.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples"> torren<choice>
+                        <orig/>
+                        <reg>t</reg>
+                     </choice>s </egXML>
+               </div3>
 
-            <div2>
-               <head>Encoder les caractères italiques</head>
-               <p>Les caractères en italiques du document source ont été retranscrits à l'aide d'un
-                  élément <gi>emph</gi> présentant un attribut <att>style</att> de valeur
-                     <val>"font-style: italic"</val>.</p>
-               <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                  <emph style="font-style: italic">exiger</emph>
-               </egXML>
-               <p>Les caractères italiques indiquent souvent l'usage d'une langue étrangère ; pour
-                  plus d'informations à ce sujet, voir la section suivante.</p>
-            </div2>
+               <div3>
+                  <head>Encoder les caractères italiques</head>
+                  <p>Les caractères en italiques du document source ont été retranscrits à l'aide
+                     d'un élément <gi>emph</gi> présentant un attribut <att>style</att> de valeur
+                        <val>"font-style: italic"</val>.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <emph style="font-style: italic">exiger</emph>
+                  </egXML>
+                  <p>Les caractères italiques indiquent souvent l'usage d'une langue étrangère ;
+                     pour plus d'informations à ce sujet, voir la section suivante.</p>
+               </div3>
 
-            <div2>
-               <head>Indiquer une langue étrangère</head>
-               <p>Les mots en italiques (voir section précédente) écrits dans une langue autre que
-                  le français ont été encodés à l'aide d'un élément <gi>foreign</gi>. Ce dernier
-                  présente un attribut <att>xml:lang</att> dont la valeur vient indiquer la langue
-                  en question à l'aide d'un code. La liste des codes peut être retrouvée à cette
-                  adresse :
-                  http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
-                  .</p>
+               <div3>
+                  <head>Indiquer une langue étrangère</head>
+                  <p>Les mots en italiques (voir section précédente) écrits dans une langue autre
+                     que le français ont été encodés à l'aide d'un élément <gi>foreign</gi>. Ce
+                     dernier présente un attribut <att>xml:lang</att> dont la valeur vient indiquer
+                     la langue en question à l'aide d'un code. La liste des codes peut être
+                     retrouvée à cette adresse :
+                     http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+                     .</p>
 
-               <p>Il a été décidé d'indiquer l'usage d'une langue étrangère uniquement lorsque
-                  l'édition source l'indiquait par l'usage de caractères en italique. Le projet
-                  d'encodage pourrait cependant être étendu dans le futur en y intégrant les mots
-                  étrangers non-écrits en italique (tels que "mylord" ou "miss" par exemple).</p>
-               <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                  <foreign xml:lang="it"><emph style="font-style: italic">influenza</emph></foreign>
-               </egXML>
+                  <p>Il a été décidé d'indiquer l'usage d'une langue étrangère uniquement lorsque
+                     l'édition source l'indiquait par l'usage de caractères en italique. Le projet
+                     d'encodage pourrait cependant être étendu dans le futur en y intégrant les mots
+                     étrangers non-écrits en italique (tels que "mylord" ou "miss" par exemple).</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <foreign xml:lang="it"><emph style="font-style: italic"
+                        >influenza</emph></foreign>
+                  </egXML>
+               </div3>
+
             </div2>
 
 
