@@ -99,6 +99,7 @@
 
                <person xml:id="brumieres">
                   <persName>Brumières</persName>
+                  <sex value="M"/>
                   <note>Brumières est un peintre et ami du narrateur, <persName ref="#valreg">Jean
                         Valreg</persName>. Ce dernier a fait sa connaissance à Marseille. Brumières
                      se prend rapidement d'affection pour <persName ref="#medora"><roleName
@@ -109,6 +110,7 @@
                   <persName><roleName type="nobility">Lord</roleName> B***</persName>
                   <persName><roleName type="nobility">Lord</roleName> B.</persName>
                   <persName><roleName type="nobility">Mylord</roleName></persName>
+                  <sex value="M"/>
                   <note>Mari de <persName ref="#harriet"><roleName type="nobility">lady</roleName>
                         Harriet</persName>, lord B*** est également l'oncle de <persName
                         ref="#medora"><roleName type="honorific">miss</roleName> Medora</persName>.
@@ -118,6 +120,7 @@
 
                <person xml:id="valreg">
                   <persName>Jean Valreg</persName>
+                  <sex value="M"/>
                   <note>Jean Valreg est le personnage principal et le narrateur de l'histoire. S'il
                      est aimé par <persName ref="#medora"><roleName type="honorific">miss</roleName>
                         Medora</persName>, celui-ci est épris de <persName ref="#daniella">la
@@ -127,6 +130,7 @@
                <person xml:id="harriet">
                   <persName><roleName type="nobility">Lady</roleName> Harriet</persName>
                   <persName><roleName type="nobility">Mylady</roleName></persName>
+                  <sex value="F"/>
                   <note>Lady Harriet est l'épouse de <persName ref="#B"><roleName type="nobility"
                            >lord</roleName> B***</persName> et la tante de <persName ref="#medora"
                            ><roleName type="honorific">miss</roleName> Medora</persName>.</note>
@@ -135,6 +139,7 @@
                <person xml:id="medora">
                   <persName><roleName type="honorific">Miss</roleName> Medora</persName>
                   <persName><roleName type="nobility">Princesse</roleName></persName>
+                  <sex value="F"/>
                   <note>Nièce de <persName ref="#B"><roleName type="nobility">lord</roleName>
                         B***</persName> et <persName ref="#harriet"><roleName type="nobility"
                            >lady</roleName> Harriet</persName>, elle s'éprend de <persName
@@ -145,6 +150,7 @@
                   <persName>Tartaglia</persName>
                   <persName>Benvenuto</persName>
                   <persName>Antoniuccio</persName>
+                  <sex value="M"/>
                   <note>Bohémien au service de <persName ref="#B"><roleName type="nobility"
                            >lord</roleName> B***</persName> et <persName ref="#harriet"><roleName
                            type="nobility">lady</roleName> Harriet</persName> et ami de <persName
@@ -154,12 +160,14 @@
                <person xml:id="daniella">
                   <persName>La Daniella</persName>
                   <persName>La Frascatine</persName>
+                  <sex value="F"/>
                   <note>Femme de chambre italienne au service de <persName ref="#medora"><roleName
                            type="honorific">miss</roleName> Medora</persName>.</note>
                </person>
 
                <person xml:id="oncle">
                   <persName>L'abbé Valreg</persName>
+                  <sex value="M"/>
                   <note>Onlce du <rs type="person" ref="#valreg">narrateur</rs>, c'est à lui que ce
                      dernier s'adresse tout au long du roman.</note>
                </person>

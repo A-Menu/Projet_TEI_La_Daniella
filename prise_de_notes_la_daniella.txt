@@ -40,6 +40,7 @@ Lieux :
 ----> penser à dire si un attribut est obligatoire ou facultatif, si il est ouvert ou fermé, pourquoi etc.
 ----> reprendre le teiHeader
 ----> Faire un front et back .. ?
+----> dire si homme ou femme 
 
 
 Livrables pour le devoir
