@@ -43,10 +43,46 @@
 
             <p><emph rend="italic">Note préliminaire</emph> : Ce document respecte le TEI all.</p>
 
+
             <div2>
                <head>Introduction</head>
                <p>Faire une brève présentation du projet</p>
                <p>Exploitations possibles du projet</p>
+
+               <!-- LOREM IPSUM -->
+               <p>Cette documentation a pour but d'expliquer comment a été encodée en XML-TEI
+                  l'oeuvre citée en titre, ainsi que les objectifs de ce schéma. Cet ODD présente
+                  des principes stricts d'encodage dans le but de produire un document exploitable
+                  scientifiquement.</p>
+               <p>Cet encodage orbite autour de la production littéraire qu'est le roman-feuilleton.
+                  Le schéma a été pensé de sorte à pouvoir proposer des données qui permettront de
+                  mieux comprendre la structure de l'oeuvre encodée, mais aussi comment ont été
+                  conçus les personnages par l'auteur, quelles fonctions leur a-t-il attribué et
+                  quelles relations avaient-ils entre eux.</p>
+               <p>Une attention particulière a été portée à la normalisation des données, afin de
+                  faciliter une réexploitation de celles-ci.</p>
+               <p>Ces résultats sont également exploitables à plusieurs échelles. Une première
+                  échelle possède une portée intérieure à l'oeuvre encodée ici, tandis que la
+                  seconde échelle se concentre sur le roman-feuilleton en général. Ces degrés
+                  d'analyse se retrouvent de manière confondue dans les objectifs suivants : <list>
+                     <item>Mettre en relation <emph rend="italic">Les fils de Famille</emph> avec un
+                        corpus plus important de romans-feuilletons.</item>
+                     <item>Présenter l'histoire de la librairie Michel Lévy Frères par rapport aux
+                        oeuvres qu'elle a édité.</item>
+                     <item>Mettre en relief la structure littéraire de l'oeuvre textuelle encodée.
+                        Se faisant, cet encodage est propice à la création d'un outil de recherche
+                        scientifique, facilitant la navigation dans l'oeuvre.</item>
+                     <item>Etudier les rapports entre les personnages, les espaces de parole qui
+                        leurs sont dédiés, ainsi que leur fréquence d'apparition et de mention
+                        respective dans l'oeuvre, selon les contextes, dans le but de produire des
+                        données statistiques. Cet encodage propose de pouvoir réaliser une analyse
+                        poussée des différentes dynamiques propres aux relations entre les
+                        personnages.</item>
+                  </list></p>
+               <p>Nous reviendrons sur ces objectifs au fur et à mesure de ce guide.</p>
+               <p>Ce schéma se concentre sur l'encodage du contenu littéraire du roman d'Eugène Sue.
+                  Les éléments typographiques de l'édition ont donc été volontairement omis.</p>
+
 
             </div2>
 
@@ -280,15 +316,24 @@
                            <gi>placeName</gi> contient quant à lui un ou plusieurs éléments
                            <gi>name</gi>, indiquant les appellations du lieu. Il comprend également
                         un élément <gi>address</gi>, renseignant quand cela est possible le pays, la
-                        ville et des codes identifiant le lieu. Le pays est indiqué à l'aide d'une
-                        balise <gi>country</gi> portant l'attribut <att>key</att> (la valeur de cet
-                        attribut correspondant au code du pays selon la norme ISO 3166 -
-                        https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). La ville est
-                        indiquée à l'aide d'une balise <gi>settlement</gi> portant l'attribut
-                           <att>type</att> de valeur <val>"city"</val>. Afin de retirer toute
-                        ambiguïté quant à la ville de localisation du lieu (si connue), deux codes
-                        permettant de l'identifier furent ajoutés. En l'absence de norme ISO pour
-                        les villes, </p>
+                        ville et des codes identifiant le lieu.</p>
+                     <p>Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant
+                        l'attribut <att>key</att> (la valeur de cet attribut correspondant au code
+                        du pays selon la norme ISO 3166 -
+                        https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
+                     <p>La ville est indiquée à l'aide d'une balise <gi>settlement</gi> portant
+                        l'attribut <att>type</att> de valeur <val>"city"</val>.</p>
+                     <p>Afin de retirer toute ambiguïté quant à la ville de localisation du lieu (si
+                        connue), deux codes permettant de l'identifier furent ajoutés à l'aide d'un
+                        élément <gi>postCode</gi>. En l'absence de norme ISO pour les villes, il fut
+                        décidé d'utiliser deux bases de référence : l'"United Nations Code for Trade
+                        and Transport Locations", ou "UN/LOCODE" (voir
+                        https://unece.org/trade/uncefact/unlocode), ainsi que la base de données
+                        "GeoNames" (voir http://www.geonames.org/about.html). Afin d'indiquer à
+                        quelle base se réfère chaque identifiant, l'élément <gi>postCode</gi> doit
+                        obligatoirement avoir un attribut <att>source</att>, dont la valeur est une
+                        liste fermée : <val>"UN/LOCODE"</val> ou
+                           <val>"GeoNames"</val>.</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <place xml:id="frascati">
                            <placeName>
