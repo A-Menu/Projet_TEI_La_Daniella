@@ -177,17 +177,21 @@
                      <address>
                         <country key="IT"/>
                         <settlement type="city"/>
+                        <postCode source="UN/LOCODE">IT ROM</postCode>
+                        <postCode source="GeoNames">3169070</postCode>
                      </address>
                   </placeName>
                   <note>Lieu de l'intrigue du chapitre VIII.</note>
                </place>
 
-               <place xml:id="civita_vecchia">
+               <place xml:id="civitavecchia">
                   <placeName>
-                     <name>Civita-Vecchia</name>
+                     <name>Civitavecchia</name>
                      <address>
                         <country key="IT"/>
                         <settlement type="city"/>
+                        <postCode source="UN/LOCODE">IT CVV</postCode>
+                        <postCode source="GeoNames">3178587</postCode>
                      </address>
                   </placeName>
                   <note>Grand port à proximité de <placeName ref="#rome">Rome</placeName>.</note>
@@ -198,10 +202,13 @@
                      <name>Saint-Pierre</name>
                      <address>
                         <country key="VA"/>
-                        <settlement type="city">Vatican</settlement>
+                        <settlement type="city">Cité du Vatican</settlement>
+                        <postCode source="UN/LOCODE">VA VAT</postCode>
+                        <postCode source="GeoNames">6691831</postCode>
                      </address>
                   </placeName>
-                  <note>Le Saint-Siège.</note>
+                  <note>Le Saint-Siège, État localisé au cœur de <placeName ref="#rome"
+                        >Rome</placeName>.</note>
                </place>
 
                <place xml:id="cavalleggieri">
@@ -210,6 +217,8 @@
                      <address>
                         <country key="IT"/>
                         <settlement type="city">Rome</settlement>
+                        <postCode source="UN/LOCODE">IT ROM</postCode>
+                        <postCode source="GeoNames">3169070</postCode>
                      </address>
                   </placeName>
                   <note>L'une des portes de <placeName ref="#rome">Rome</placeName>, de nos jours
@@ -222,6 +231,8 @@
                      <address>
                         <country key="IT"/>
                         <settlement type="city">Rome</settlement>
+                        <postCode source="UN/LOCODE">IT ROM</postCode>
+                        <postCode source="GeoNames">3169070</postCode>
                      </address>
                   </placeName>
                   <note>Lieu de résidence de <persName ref="#B"><roleName type="nobility"
@@ -246,6 +257,8 @@
                      <address>
                         <country key="IT"/>
                         <settlement type="city">Gênes</settlement>
+                        <postCode source="UN/LOCODE">IT GOA</postCode>
+                        <postCode source="GeoNames">3176219</postCode>
                      </address>
                   </placeName>
                   <note>Grand port du nord-ouest de l'Italie.</note>
@@ -257,6 +270,8 @@
                      <address>
                         <country key="IT"/>
                         <settlement type="city"/>
+                        <postCode source="UN/LOCODE">IT FRA</postCode>
+                        <postCode source="GeoNames">3176589</postCode>
                      </address>
                   </placeName>
                   <note>Petite ville italienne située non loin de <placeName ref="#rome"
@@ -270,6 +285,8 @@
                      <address>
                         <country key="IT"/>
                         <settlement type="city">Rome</settlement>
+                        <postCode source="UN/LOCODE">IT ROM</postCode>
+                        <postCode source="GeoNames">3169070</postCode>
                      </address>
                   </placeName>
                   <note>Forteresse de <placeName ref="#rome">Rome</placeName> et ancien mausolée de
@@ -292,6 +309,8 @@
                      <address>
                         <country key="FR"/>
                         <settlement type="city"/>
+                        <postCode source="UN/LOCODE">FR PAR</postCode>
+                        <postCode source="GeoNames">2988507</postCode>
                      </address>
                   </placeName>
                   <note>Capitale de la France.</note>
@@ -348,11 +367,14 @@
                voiture de louage, traînée par de bons chevaux de poste. </p>
 
             <p> Je reconnus aussitôt cette voiture pour y avoir vu transporter, à <placeName
-                  ref="#civita_vecchia">Civita-Vecchia</placeName>, le bagage de <persName
-                  ref="#harriet"><roleName type="nobility">lady</roleName> Harriet</persName> et de
-               sa <rs type="person" ref="#B #medora">famille</rs>. C’était une grande calèche
-               ouverte. Un domestique, dépêché quelques jours d’avance pour l’envoyer, de <placeName
-                  ref="#rome">Rome</placeName>, au<choice>
+                  ref="#civitavecchia">Civita<choice>
+                     <orig>-V</orig>
+                     <reg>v</reg>
+                  </choice>ecchia</placeName>, le bagage de <persName ref="#harriet"><roleName
+                     type="nobility">lady</roleName> Harriet</persName> et de sa <rs type="person"
+                  ref="#B #medora">famille</rs>. C’était une grande calèche ouverte. Un domestique,
+               dépêché quelques jours d’avance pour l’envoyer, de <placeName ref="#rome"
+                  >Rome</placeName>, au<choice>
                   <orig> </orig>
                   <reg>-</reg>
                </choice>devant des illustres voyageurs, était resté à la ville pour achever de
