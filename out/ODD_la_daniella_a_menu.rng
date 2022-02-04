@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-02-04T15:00:53Z. .
+Schema generated from ODD source 2022-02-04T17:00:06Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -75,7 +75,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24262-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24356-constraint">
          <rule context="tei:content">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://relaxng.org/ns/compatibility/annotations/1.0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'http://relaxng.org/ns/structure/1.0', 'http://www.tei-c.org/ns/1.0'))]">content descendants must be in the
               namespaces
@@ -3300,6 +3300,13 @@ Measures]</a:documentation>
             <s:rule context="tei:TEI/tei:text/descendant::tei:div">
                <s:assert test="tei:head">Un élément div dans le text doit
                                  obligatoirement disposer d'un élément head.</s:assert>
+               <s:assert test="@type and @n">Un élément div dans le text doit
+                                 obligatoirement disposer d'un attribut type et d'un attribut
+                                 n.</s:assert>
+               <s:assert test="@type='chapter'">L'attribut type doit avoir comme
+                                 valeur chapter.</s:assert>
+               <s:assert test="matches(@n, '^[1-9]\d*$')">L'attribut n doit être un
+                                 entier positif.</s:assert>
             </s:rule>
          </s:pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -4762,7 +4769,7 @@ Child elements of <name/> are only allowed when an external module is being load
             <ref name="model.contentPart"/>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-sequence-sequencechilden-constraint-assert-13">
+                  id="oddbyexample-sequence-sequencechilden-constraint-assert-16">
             <rule context="tei:sequence">
                <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4801,7 +4808,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </choice>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-alternate-alternatechilden-constraint-assert-14">
+                  id="oddbyexample-alternate-alternatechilden-constraint-assert-17">
             <rule context="tei:alternate">
                <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4870,7 +4877,7 @@ Child elements of <name/> are only allowed when an external module is being load
              prefix="teix"
              uri="http://www.tei-c.org/ns/Examples"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-attDefContents-constraint-assert-15">
+                  id="oddbyexample-attDef-attDefContents-constraint-assert-18">
             <rule context="tei:attDef">
                <assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                        xmlns:xi="http://www.w3.org/2001/XInclude"

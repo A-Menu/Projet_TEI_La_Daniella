@@ -37,8 +37,8 @@ Lieux :
 
 -------------------------------------------------------------
 
-----> penser à dire si un attribut est obligatoire ou facultatif, si il est ouvert ou fermé, pourquoi etc.
-----> reprendre le teiHeader
+
+----> faire l'intro de la doc, et penser à justifier les choix tout au long de la doc.
 
 
 Livrables pour le devoir

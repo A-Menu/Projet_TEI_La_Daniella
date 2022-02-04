@@ -90,7 +90,7 @@
                <head>Structure générale du document XML</head>
 
                <p>Le document XML est contenu à l'intérieur d'un élément racine <gi>TEI</gi>. Ce
-                  dernier se compose d'un élément <gi>teiHeader</gi>, renseignant les métadonnées du
+                  dernier se compose d'un élément <gi>teiHeader</gi> renseignant les métadonnées du
                   document, ainsi que d'un élément <gi>text</gi> abritant l'encodage lui-même.</p>
             </div2>
 
@@ -110,13 +110,13 @@
                   <div4>
                      <head>Le <gi>titleStmt</gi></head>
                      <p>Le <gi>titleStmt</gi> renseigne les informations relatives au titre du
-                        document encodé (<gi>title</gi>) ainsi qu'à l'auteur ou l'autrice de
-                        celui-ci (<gi>author</gi>).</p>
+                        document encodé (<gi>title</gi>) et l'auteur ou l'autrice de celui-ci
+                           (<gi>author</gi>).</p>
                      <p>En l'espèce, l'élément <gi>author</gi> a été enrichi d'un attribut
-                           <att>ref</att>, redirigeant vers la notice de George Sand du catalogue de
-                        la BnF, ainsi que d'un identifiant (<att>xml:id</att>. Ce même élément se
-                        décompose en prénom (<gi>forename</gi>) et nom (<gi>surname</gi>) de
-                        l'autrice.</p>
+                           <att>ref</att> redirigeant vers la notice de George Sand du catalogue de
+                        la BnF, ainsi que d'un identifiant (<att>xml:id</att>). L'élément
+                           <gi>author</gi> se décompose en prénom (<gi>forename</gi>) et nom
+                           (<gi>surname</gi>) de l'autrice.</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <titleStmt>
                            <title>La Daniella</title>
@@ -157,6 +157,9 @@
                            (<gi>pubPlace</gi>), date (<gi>date</gi> avec un attribut
                            <att>when-iso</att>), licence et accès (<gi>availability</gi> et
                            <gi>licence</gi>).</p>
+                     <p>La date est indiquée à l'aide d'une balise <gi>date</gi> portant l'attribut
+                           <att>when-iso</att> (la valeur de cet attribut est renseignée selon la
+                        norme ISO 8601 - https://fr.wikipedia.org/wiki/ISO_8601).</p>
                      <p>Le présent document n'étant pas publié, cette section aurait dû rester vide.
                         Un exemple d'encodage (basé sur le cours) a cependant été renseigné afin de
                         montrer ce à quoi un <gi>publicationStmt</gi> complet pourrait
@@ -185,6 +188,25 @@
                         l'éditeur du document source (<gi>publicationStmt</gi>, à ne pas confondre
                         avec le même élément vu ci-dessus, qui se réfère quant à lui au document
                         encodé) et l'extrait encodé (<gi>seriesStmt</gi>).</p>
+                     <p>Le <gi>seriesStmt</gi> a été utilisé pour renseigner le type d'ouvrage et le
+                        passage encodés via des éléments <gi>biblScope</gi> présentant un attribut
+                           <att>unit</att>. Un premier élément <gi>biblScope</gi> présente ainsi un
+                        attribut <att>unit</att> de valeur <val>"book"</val> et un deuxième de
+                        valeur <val>"chapter"</val>. Enfin, un troisième <gi>biblScope</gi>
+                        comprend, en plus d'un attribut <att>unit</att> de valeur <val>"page"</val>,
+                        un attribut <att>from</att> et un attribut <att>to</att> afin d'indiquer les
+                        pages encodées.</p>
+                     <p>La date est indiquée à l'aide d'une balise <gi>date</gi> portant l'attribut
+                           <att>when-iso</att> (la valeur de cet attribut est renseignée selon la
+                        norme ISO 8601 - https://fr.wikipedia.org/wiki/ISO_8601).</p>
+                     <p>Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant
+                        l'attribut <att>key</att> (la valeur de cet attribut correspondant au code
+                        du pays selon la norme ISO 3166 -
+                        https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
+
+                     <p>Notons également qu'un lien vers la numérisation du roman-feuilleton est
+                        fourni via l'attribut <att>facs</att> de l'élément <gi>distributor</gi>
+                        (élément compris dans le <gi>publicationStmt</gi>).</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <sourceDesc>
                            <biblFull>
@@ -257,6 +279,17 @@
                      <head>L'élément <gi>creation</gi></head>
                      <p>L'élément <gi>creation</gi> indique la date et le pays de création du
                         document source, ainsi que sa langue.</p>
+                     <p>La date est indiquée à l'aide d'une balise <gi>date</gi> portant l'attribut
+                           <att>when-iso</att> (la valeur de cet attribut est renseignée selon la
+                        norme ISO 8601 - https://fr.wikipedia.org/wiki/ISO_8601).</p>
+                     <p>Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant
+                        l'attribut <att>key</att> (la valeur de cet attribut correspondant au code
+                        du pays selon la norme ISO 3166 -
+                        https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
+                     <p>La langue est indiquée à l'aide d'une balise <gi>lang</gi> portant
+                        l'attribut <att>xml:lang</att> (la valeur de cet attribut est renseignée
+                        selon la norme ISO 639-1 -
+                        https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1).</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <creation>
                            <date when-iso="1857-01-14">14 janvier 1857</date>
@@ -308,21 +341,23 @@
                         "Faire référence aux lieux".</p>
                      <p>Il comprend un élément <gi>listPlace</gi> qui vient lister les lieux évoqués
                         dans le roman-feuilleton. Chaque lieu identifiable évoqué est renseigné dans
-                        un élément <gi>place</gi> (avec un attribut <att>xml:id</att> servant
-                        d'identifiant. Cet identifiant nous permettra par la suite de faire
+                        un élément <gi>place</gi> avec un attribut obligatoire <att>xml:id</att>
+                        servant d'identifiant. Cet identifiant nous permettra par la suite de faire
                         référence au lieu dans le texte.</p>
-                     <p>L'élément <gi>place</gi> comrend un élément <gi>placeName</gi> ainsi qu'une
-                           <gi>note</gi> facultative venant brièvement décrire le lieu. L'élément
-                           <gi>placeName</gi> contient quant à lui un ou plusieurs éléments
-                           <gi>name</gi>, indiquant les appellations du lieu. Il comprend également
-                        un élément <gi>address</gi>, renseignant quand cela est possible le pays, la
-                        ville et des codes identifiant le lieu.</p>
-                     <p>Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant
-                        l'attribut <att>key</att> (la valeur de cet attribut correspondant au code
-                        du pays selon la norme ISO 3166 -
+                     <p>L'élément <gi>place</gi> comrend nécessairement un élément
+                           <gi>placeName</gi> ainsi qu'une <gi>note</gi> facultative venant
+                        brièvement décrire le lieu. L'élément <gi>placeName</gi> contient quant à
+                        lui un ou plusieurs éléments <gi>name</gi>, indiquant les appellations du
+                        lieu. Il comprend également un élément <gi>address</gi>, renseignant quand
+                        cela est possible le pays, la ville et des codes identifiant le lieu.</p>
+                     <p>Le pays est indiqué à l'aide d'une ou plusieurs balises obligatoires
+                           <gi>country</gi> portant l'attribut <att>key</att> (la valeur de cet
+                        attribut est une liste fermée correspondant aux codes de l'Italie, la France
+                        et du Vatican selon la norme ISO 3166 -
                         https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
-                     <p>La ville est indiquée à l'aide d'une balise <gi>settlement</gi> portant
-                        l'attribut <att>type</att> de valeur <val>"city"</val>.</p>
+                     <p>La ville est indiquée à l'aide d'une balise facultative <gi>settlement</gi>
+                        portant l'attribut <att>type</att> de valeur <val>"city"</val>. Cet élément
+                        est facultatif, tout lieu n'étant pas localisé dans une ville.</p>
                      <p>Afin de retirer toute ambiguïté quant à la ville de localisation du lieu (si
                         connue), deux codes permettant de l'identifier furent ajoutés à l'aide d'un
                         élément <gi>postCode</gi>. En l'absence de norme ISO pour les villes, il fut
@@ -371,9 +406,10 @@
                      lui-même fut encodé. Il fut structuré en <gi>div</gi>, chaque <gi>div</gi>
                      représentant un chapitre, comme indiqué par leur attribut <att>type</att> de
                      valeur <val>"chapter"</val>, tandis qu'un second attribut <att>n</att> vient
-                     renseigner le numéro du chapitre (<val>"8"</val> en l'espèce).</p>
-                  <p>L'en-tête du chapitre est indiqué dans l'élément <gi>head</gi>. Chaque
-                     paragraphe est quant à lui inséré dans un élément <gi>p</gi>.</p>
+                     renseigner le numéro du chapitre (<val>"8"</val> en l'espèce - cette valeur
+                     doit obligatoirement être un entier positif).</p>
+                  <p>L'en-tête du chapitre est obligatoirement indiqué dans l'élément <gi>head</gi>.
+                     Chaque paragraphe est quant à lui inséré dans un élément <gi>p</gi>.</p>
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <div type="chapter" n="8">
                         <head>VIII (Suite).</head>
@@ -572,10 +608,9 @@
                      que le français ont été encodés à l'aide d'un élément <gi>foreign</gi>. Ce
                      dernier présente un attribut obligatoire <att>xml:lang</att> dont la valeur
                      vient indiquer la langue en question à l'aide d'un code issu d'une liste fermée
-                        (<val>"it"</val> pour italien, <val>"en"</val> pour anglais). La liste des
-                     codes peut être retrouvée à cette adresse :
-                     http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
-                     .</p>
+                        (<val>"it"</val> pour italien, <val>"en"</val> pour anglais). La valeur de
+                     cet attribut est renseignée selon la norme ISO 639-1 -
+                     https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1).</p>
 
                   <p>Il a été décidé d'indiquer l'usage d'une langue étrangère uniquement lorsque
                      l'édition source l'indiquait par l'usage de caractères en italique. Le projet
@@ -625,13 +660,20 @@
                <!-- STRUCTURATION DU TEXTE ET CORRECTION DE L'ORTHOGRAPHE -->
 
                <elementSpec ident="div" mode="change">
-                  <!-- Un élément div dans le text doit obligatoirement disposer d'un élément head. -->
+                  <!-- Un élément div dans le text doit obligatoirement disposer d'un élément head, d'un attribut type de valeur chapter et d'un attribut n dont la valeur est un entier positif. -->
                   <constraintSpec ident="divHeadText" scheme="schematron">
                      <constraint>
                         <s:pattern>
                            <s:rule context="tei:TEI/tei:text/descendant::tei:div">
                               <s:assert test="tei:head">Un élément div dans le text doit
                                  obligatoirement disposer d'un élément head.</s:assert>
+                              <s:assert test="@type and @n">Un élément div dans le text doit
+                                 obligatoirement disposer d'un attribut type et d'un attribut
+                                 n.</s:assert>
+                              <s:assert test="@type='chapter'">L'attribut type doit avoir comme
+                                 valeur chapter.</s:assert>
+                              <s:assert test="matches(@n, '^[1-9]\d*$')">L'attribut n doit être un
+                                 entier positif.</s:assert>
                            </s:rule>
                         </s:pattern>
                      </constraint>
