@@ -39,6 +39,7 @@ Lieux :
 
 
 ----> faire l'intro de la doc, et penser à justifier les choix tout au long de la doc.
+----> penser à MaJ les titres des fichiers et à bouger la rng avant d'appliquer le schéma à la toute fin
 
 
 Livrables pour le devoir
