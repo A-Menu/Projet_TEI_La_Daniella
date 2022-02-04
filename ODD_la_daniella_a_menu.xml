@@ -1285,6 +1285,21 @@
                   </attList>
                </elementSpec>
                <elementSpec ident="postCode" mode="change">
+                  <!-- Un élément postCode dans le profileDesc doit obligatoirement
+                                 disposer d'un attribut source. -->
+                  <constraintSpec ident="postCodeRefText" scheme="schematron">
+                     <constraint>
+                        <s:pattern>
+                           <s:rule
+                              context="tei:TEI/tei:teiHeader/tei:profileDesc/descendant::tei:postCode">
+                              <s:assert test="@source">Un élément postCode dans le profileDesc doit
+                                 obligatoirement disposer d'un attribut source.</s:assert>
+                              <s:assert test="@source='UN/LOCODE' or @source='GeoNames'">L'attribut
+                                 source doit être de valeur UN/LOCODE ou GeoNames.</s:assert>
+                           </s:rule>
+                        </s:pattern>
+                     </constraint>
+                  </constraintSpec>
                   <attList>
                      <attDef ident="facs" mode="delete"/>
                   </attList>
