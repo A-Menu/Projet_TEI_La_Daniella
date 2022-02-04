@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-02-04T14:00:56Z. .
+Schema generated from ODD source 2022-02-04T15:00:53Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -75,7 +75,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e19955-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24262-constraint">
          <rule context="tei:content">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://relaxng.org/ns/compatibility/annotations/1.0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'http://relaxng.org/ns/structure/1.0', 'http://www.tei-c.org/ns/1.0'))]">content descendants must be in the
               namespaces
@@ -1709,8 +1709,8 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
    </define>
    <define name="model.encodingDescPart">
       <choice>
-         <ref name="schemaSpec"/>
          <ref name="projectDesc"/>
+         <ref name="schemaSpec"/>
       </choice>
    </define>
    <define name="model.profileDescPart">
@@ -2564,1334 +2564,6 @@ Measures]</a:documentation>
          <empty/>
       </element>
    </define>
-   <define name="att.datable.custom.attribute.when-custom">
-      <optional>
-         <attribute name="when-custom">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in some custom standard form.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att.datable.custom.attribute.notBefore-custom">
-      <optional>
-         <attribute name="notBefore-custom">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in some custom standard form.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att.datable.custom.attribute.notAfter-custom">
-      <optional>
-         <attribute name="notAfter-custom">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in some custom standard form.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att.datable.custom.attribute.from-custom">
-      <optional>
-         <attribute name="from-custom">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in some custom standard form.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att.datable.custom.attribute.to-custom">
-      <optional>
-         <attribute name="to-custom">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in some custom standard form.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att.datable.custom.attribute.datingPoint">
-      <optional>
-         <attribute name="datingPoint">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to some location defining a named point in time with reference to which the datable item is understood to have occurred</a:documentation>
-            <data type="anyURI"/>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att.datable.custom.attribute.datingMethod">
-      <optional>
-         <attribute name="datingMethod">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to a <code xmlns="http://www.w3.org/1999/xhtml">&lt;calendar&gt;</code> element or other means of interpreting the values of the custom dating attributes.</a:documentation>
-            <data type="anyURI"/>
-         </attribute>
-      </optional>
-   </define>
-   <define name="persName">
-      <element name="persName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <s:pattern xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xmlns="http://www.tei-c.org/ns/1.0"
-                    xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                    xmlns:s="http://purl.oclc.org/dsdl/schematron">
-            <s:rule context="tei:TEI/tei:text/descendant::tei:persName">
-               <s:assert test="@ref">Un élément persName dans le text doit
-                                 obligatoirement disposer d'un attribut ref.</s:assert>
-            </s:rule>
-         </s:pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.datable.w3c.attribute.when"/>
-         <ref name="att.datable.w3c.attribute.notBefore"/>
-         <ref name="att.datable.w3c.attribute.notAfter"/>
-         <ref name="att.datable.w3c.attribute.from"/>
-         <ref name="att.datable.w3c.attribute.to"/>
-         <ref name="att.datable.custom.attribute.when-custom"/>
-         <ref name="att.datable.custom.attribute.notBefore-custom"/>
-         <ref name="att.datable.custom.attribute.notAfter-custom"/>
-         <ref name="att.datable.custom.attribute.from-custom"/>
-         <ref name="att.datable.custom.attribute.to-custom"/>
-         <ref name="att.datable.custom.attribute.datingPoint"/>
-         <ref name="att.datable.custom.attribute.datingMethod"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.canonical.attribute.ref"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="full"
-                       a:defaultValue="yes">
-               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
-               <choice>
-                  <value>yes</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="surname">
-      <element name="surname">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(surname) contains a family (inherited) name, as opposed to a given, baptismal, or nick name. [13.2.1. Personal Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="full"
-                       a:defaultValue="yes">
-               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
-               <choice>
-                  <value>yes</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="forename">
-      <element name="forename">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forename) contains a forename, given or baptismal name. [13.2.1. Personal Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="full"
-                       a:defaultValue="yes">
-               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
-               <choice>
-                  <value>yes</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="roleName">
-      <element name="roleName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(role name) contains a name component which indicates that the referent has a particular role or position in society, such as an official title or rank. [13.2.1. Personal Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="full"
-                       a:defaultValue="yes">
-               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
-               <choice>
-                  <value>yes</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <attribute name="type">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
-            <choice>
-               <value>honorific</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>nobility</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-            </choice>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="placeName">
-      <element name="placeName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <s:pattern xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xmlns="http://www.tei-c.org/ns/1.0"
-                    xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                    xmlns:s="http://purl.oclc.org/dsdl/schematron">
-            <s:rule context="tei:TEI/tei:text/descendant::tei:placeName">
-               <s:assert test="@ref">Un élément placeName dans le text doit
-                                 obligatoirement disposer d'un attribut ref.</s:assert>
-            </s:rule>
-         </s:pattern>
-         <ref name="att.datable.w3c.attribute.when"/>
-         <ref name="att.datable.w3c.attribute.notBefore"/>
-         <ref name="att.datable.w3c.attribute.notAfter"/>
-         <ref name="att.datable.w3c.attribute.from"/>
-         <ref name="att.datable.w3c.attribute.to"/>
-         <ref name="att.datable.custom.attribute.when-custom"/>
-         <ref name="att.datable.custom.attribute.notBefore-custom"/>
-         <ref name="att.datable.custom.attribute.notAfter-custom"/>
-         <ref name="att.datable.custom.attribute.from-custom"/>
-         <ref name="att.datable.custom.attribute.to-custom"/>
-         <ref name="att.datable.custom.attribute.datingPoint"/>
-         <ref name="att.datable.custom.attribute.datingMethod"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.canonical.attribute.ref"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="full"
-                       a:defaultValue="yes">
-               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
-               <choice>
-                  <value>yes</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="country">
-      <element name="country">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(country) contains the name of a geo-political unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc. [13.2.3. Place Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.datable.w3c.attribute.when"/>
-         <ref name="att.datable.w3c.attribute.notBefore"/>
-         <ref name="att.datable.w3c.attribute.notAfter"/>
-         <ref name="att.datable.w3c.attribute.from"/>
-         <ref name="att.datable.w3c.attribute.to"/>
-         <ref name="att.datable.custom.attribute.when-custom"/>
-         <ref name="att.datable.custom.attribute.notBefore-custom"/>
-         <ref name="att.datable.custom.attribute.notAfter-custom"/>
-         <ref name="att.datable.custom.attribute.from-custom"/>
-         <ref name="att.datable.custom.attribute.to-custom"/>
-         <ref name="att.datable.custom.attribute.datingPoint"/>
-         <ref name="att.datable.custom.attribute.datingMethod"/>
-         <attribute name="key">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides an externally-defined means of identifying the entity (or entities) being named, using a coded value of some kind.</a:documentation>
-            <choice>
-               <value>FR</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>IT</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>VA</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-            </choice>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="settlement">
-      <element name="settlement">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(settlement) contains the name of a settlement such as a city, town, or village identified as a single geo-political or administrative unit. [13.2.3. Place Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.datable.w3c.attribute.when"/>
-         <ref name="att.datable.w3c.attribute.notBefore"/>
-         <ref name="att.datable.w3c.attribute.notAfter"/>
-         <ref name="att.datable.w3c.attribute.from"/>
-         <ref name="att.datable.w3c.attribute.to"/>
-         <ref name="att.datable.custom.attribute.when-custom"/>
-         <ref name="att.datable.custom.attribute.notBefore-custom"/>
-         <ref name="att.datable.custom.attribute.notAfter-custom"/>
-         <ref name="att.datable.custom.attribute.from-custom"/>
-         <ref name="att.datable.custom.attribute.to-custom"/>
-         <ref name="att.datable.custom.attribute.datingPoint"/>
-         <ref name="att.datable.custom.attribute.datingMethod"/>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
-               <choice>
-                  <value>city</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="district">
-      <element name="district">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(district) contains the name of any kind of subdivision of a settlement, such as a parish, ward, or other administrative or geographic unit. [13.2.3. Place Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.datable.w3c.attribute.when"/>
-         <ref name="att.datable.w3c.attribute.notBefore"/>
-         <ref name="att.datable.w3c.attribute.notAfter"/>
-         <ref name="att.datable.w3c.attribute.from"/>
-         <ref name="att.datable.w3c.attribute.to"/>
-         <ref name="att.datable.custom.attribute.when-custom"/>
-         <ref name="att.datable.custom.attribute.notBefore-custom"/>
-         <ref name="att.datable.custom.attribute.notAfter-custom"/>
-         <ref name="att.datable.custom.attribute.from-custom"/>
-         <ref name="att.datable.custom.attribute.to-custom"/>
-         <ref name="att.datable.custom.attribute.datingPoint"/>
-         <ref name="att.datable.custom.attribute.datingMethod"/>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
-               <choice>
-                  <value>arrondissement</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="listPerson">
-      <element name="listPerson">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of persons) contains a list of descriptions, each of which provides information about an identifiable person or a group of people, for example the participants in a language interaction, or the people referred to in a historical source. [13.3.2. The Person Element 15.2. Contextual Information 2.4. The Profile Description 15.3.2. Declarable Elements]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="model.headLike"/>
-            </zeroOrMore>
-            <zeroOrMore>
-               <empty/>
-            </zeroOrMore>
-            <oneOrMore>
-               <group>
-                  <oneOrMore>
-                     <choice>
-                        <ref name="model.personLike"/>
-                        <ref name="listPerson"/>
-                     </choice>
-                  </oneOrMore>
-                  <zeroOrMore>
-                     <empty/>
-                  </zeroOrMore>
-               </group>
-            </oneOrMore>
-         </group>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.sortable.attributes"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="default"
-                       a:defaultValue="false">
-               <a:documentation>indicates whether or not this element is selected by default when its parent is selected.</a:documentation>
-               <choice>
-                  <value>false</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="listPlace">
-      <element name="listPlace">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of places) contains a list of places, optionally followed by a list of relationships (other than containment) defined amongst them. [2.2.7. The Source Description 13.3.4. Places]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="model.headLike"/>
-            </zeroOrMore>
-            <zeroOrMore>
-               <empty/>
-            </zeroOrMore>
-            <oneOrMore>
-               <group>
-                  <oneOrMore>
-                     <choice>
-                        <ref name="model.placeLike"/>
-                        <ref name="listPlace"/>
-                     </choice>
-                  </oneOrMore>
-                  <zeroOrMore>
-                     <empty/>
-                  </zeroOrMore>
-               </group>
-            </oneOrMore>
-         </group>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.sortable.attributes"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="default"
-                       a:defaultValue="false">
-               <a:documentation>indicates whether or not this element is selected by default when its parent is selected.</a:documentation>
-               <choice>
-                  <value>false</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="person">
-      <element name="person">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(person) provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [13.3.2. The Person Element 15.2.2. The Participant Description]</a:documentation>
-         <oneOrMore>
-            <ref name="persName"/>
-         </oneOrMore>
-         <ref name="sex"/>
-         <optional>
-            <ref name="note"/>
-         </optional>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.sortable.attributes"/>
-         <attribute name="xml:id">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
-            <data type="ID"/>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="place">
-      <element name="place">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place) contains data about a geographic location [13.3.4. Places]</a:documentation>
-         <ref name="placeName"/>
-         <optional>
-            <ref name="note"/>
-         </optional>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.sortable.attributes"/>
-         <attribute name="xml:id">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
-            <data type="ID"/>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="sex">
-      <element name="sex">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sex) specifies the sex of a person. [13.3.2.1. Personal Characteristics]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.datable.w3c.attribute.when"/>
-         <ref name="att.datable.w3c.attribute.notBefore"/>
-         <ref name="att.datable.w3c.attribute.notAfter"/>
-         <ref name="att.datable.w3c.attribute.from"/>
-         <ref name="att.datable.w3c.attribute.to"/>
-         <ref name="att.datable.custom.attribute.when-custom"/>
-         <ref name="att.datable.custom.attribute.notBefore-custom"/>
-         <ref name="att.datable.custom.attribute.notAfter-custom"/>
-         <ref name="att.datable.custom.attribute.from-custom"/>
-         <ref name="att.datable.custom.attribute.to-custom"/>
-         <ref name="att.datable.custom.attribute.datingPoint"/>
-         <ref name="att.datable.custom.attribute.datingMethod"/>
-         <attribute name="value">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'attribut "value" est requis et doit avoir pour valeur "M" (male = masculin), "F" (female = féminin), "O" (other = autre), "N" (none or not applicable = aucun ou non applicable) ou "U" (unknown = inconnu).</a:documentation>
-            <list>
-               <oneOrMore>
-                  <choice>
-                     <value>M</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                     <value>F</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                     <value>O</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                     <value>N</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                     <value>U</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  </choice>
-               </oneOrMore>
-            </list>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="lang">
-      <element name="lang">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(language name) contains the name of a language mentioned in etymological or other linguistic discussion. [9.3.4. Etymological Information]</a:documentation>
-         <ref name="macro.paraContent"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.lexicographic.attributes"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="att.deprecated.attributes">
-      <ref name="att.deprecated.attribute.validUntil"/>
-   </define>
-   <define name="att.deprecated.attribute.validUntil">
-      <optional>
-         <attribute name="validUntil">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides a date before which the construct being defined will not be removed.</a:documentation>
-            <data type="date"/>
-         </attribute>
-      </optional>
-   </define>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.deprecated-validUntil-deprecation-two-month-warning-constraint-rule-9">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                context="tei:*[@validUntil]">
-         <sch:let name="advance_warning_period"
-                  value="current-date() + xs:dayTimeDuration('P60D')"/>
-         <sch:let name="me_phrase"
-                  value="if (@ident)                                                then concat('The ', @ident )                                                else concat('This ',                                                            local-name(.),                                                            ' of ',                                                            ancestor::tei:*[@ident][1]/@ident )"/>
-         <sch:assert test="@validUntil cast as xs:date  ge  current-date()">
-            <sch:value-of select="                  concat( $me_phrase,                          ' construct is outdated (as of ',                          @validUntil,                          '); ODD processors may ignore it, and its use is no longer supported'                        )"/>
-         </sch:assert>
-         <sch:assert role="nonfatal"
-                     test="@validUntil cast as xs:date  ge  $advance_warning_period">
-            <sch:value-of select="concat( $me_phrase, ' construct becomes outdated on ', @validUntil )"/>
-         </sch:assert>
-      </sch:rule>
-   </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.deprecated-validUntil-deprecation-should-be-explained-constraint-rule-10">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                context="tei:*[@validUntil][ not( self::valDesc | self::valList | self::defaultVal )]">
-         <sch:assert test="child::tei:desc[ @type eq 'deprecationInfo']">
-              A deprecated construct should include, whenever possible, an explanation, but this <sch:value-of select="name(.)"/> does not have a child &lt;desc type="deprecationInfo"&gt;</sch:assert>
-      </sch:rule>
-   </pattern>
-   <define name="att.namespaceable.attributes">
-      <ref name="att.namespaceable.attribute.ns"/>
-   </define>
-   <define name="att.namespaceable.attribute.ns">
-      <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="ns"
-                    a:defaultValue="http://www.tei-c.org/ns/1.0">
-            <a:documentation>(namespace) specifies the namespace to which this element belongs</a:documentation>
-            <data type="anyURI"/>
-         </attribute>
-      </optional>
-   </define>
-   <define name="att">
-      <element name="att">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(attribute) contains the name of an attribute appearing within running text. [22. Documentation Elements]</a:documentation>
-         <data type="Name"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="gi">
-      <element name="gi">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(element name) contains the name (generic identifier) of an element. [22. Documentation Elements 22.5. Element Specifications]</a:documentation>
-         <data type="Name"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="val">
-      <element name="val">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(value) contains a single attribute value. [22. Documentation Elements 22.5.3. Attribute List Specification]</a:documentation>
-         <text/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="classRef">
-      <element name="classRef">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to the specification for an attribute or model class which is to be included in a schema [22.6. Class Specifications]</a:documentation>
-         <empty/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <choice>
-            <optional>
-               <attribute name="include">
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <text/>
-               </attribute>
-            </optional>
-            <optional>
-               <attribute name="except">
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <text/>
-               </attribute>
-            </optional>
-         </choice>
-         <attribute name="key">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">the identifier used for the required class within the source indicated.</a:documentation>
-            <data type="NCName"/>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="elementRef">
-      <element name="elementRef">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to the specification for some element which is to be included in a schema [22.2. Modules and Schemas]</a:documentation>
-         <empty/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.repeatable.attributes"/>
-         <attribute name="key">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">the identifier used for the required element within the source indicated.</a:documentation>
-            <data type="NCName"/>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="moduleRef">
-      <element name="moduleRef">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(module reference) references a module which is to be incorporated into a schema. [22.2. Modules and Schemas]</a:documentation>
-         <optional>
-            <ref name="content"/>
-         </optional>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-moduleRef-modref-constraint-rule-11">
-            <rule xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                  context="tei:moduleRef">
-               <report test="* and @key">
-Child elements of <name/> are only allowed when an external module is being loaded
-        </report>
-            </rule>
-         </pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <choice>
-            <optional>
-               <attribute name="include">
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a list of the elements which are to be copied from the specified module into the schema being defined.</a:documentation>
-                  <list>
-                     <zeroOrMore>
-                        <data type="NCName"/>
-                     </zeroOrMore>
-                  </list>
-               </attribute>
-            </optional>
-            <optional>
-               <attribute name="except">
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <text/>
-               </attribute>
-            </optional>
-         </choice>
-         <choice>
-            <optional>
-               <attribute name="key">
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">the name of a TEI module</a:documentation>
-                  <data type="NCName"/>
-               </attribute>
-            </optional>
-            <optional>
-               <attribute name="url">
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <text/>
-               </attribute>
-            </optional>
-         </choice>
-         <empty/>
-      </element>
-   </define>
-   <define name="schemaSpec">
-      <element name="schemaSpec">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(schema specification) generates a TEI-conformant schema and documentation for it. [2.3. The Encoding Description 22.2. Modules and Schemas 23.5.1. Making a Unified ODD]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <choice>
-                  <ref name="model.glossLike"/>
-                  <ref name="model.descLike"/>
-               </choice>
-            </zeroOrMore>
-            <zeroOrMore>
-               <choice>
-                  <ref name="model.oddRef"/>
-                  <ref name="model.oddDecl"/>
-               </choice>
-            </zeroOrMore>
-         </group>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-schemaSpec-deprecate_schemaSpec_in_bizarre_places-constraint-rule-12">
-            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xmlns="http://www.tei-c.org/ns/1.0"
-                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:schemaSpec|teix:schemaSpec">
-               <sch:assert test="             parent::teix:egXML      | parent::tei:encodingDesc  | parent::teix:encodingDesc      | parent::tei:front         | parent::teix:front      | parent::tei:back          | parent::teix:back      | parent::tei:body          | parent::teix:body      | parent::tei:div           | parent::teix:div      | parent::tei:div1          | parent::teix:div1      | parent::tei:div2          | parent::teix:div2      | parent::tei:div3          | parent::teix:div3      | parent::tei:div4          | parent::teix:div4      | parent::tei:div5          | parent::teix:div5      | parent::tei:div6          | parent::teix:div6      | parent::tei:div7          | parent::teix:div7"
-                           role="nonfatal">WARNING: use of deprecated construct — the “schemaSpec” element will no longer be a valid child of “<sch:value-of select="name(..)"/>” as of 2021-10-23; instead, it should be a child of “front”, “body”, “back”, “encodingDesc”, or a division element.</sch:assert>
-            </sch:rule>
-         </pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.identified.attribute.ident"/>
-         <ref name="att.deprecated.attribute.validUntil"/>
-         <ref name="att.namespaceable.attributes"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="start"
-                       a:defaultValue="TEI">
-               <a:documentation>specifies entry points to the schema, i.e. which patterns may be used as the root of documents conforming to it.</a:documentation>
-               <list>
-                  <oneOrMore>
-                     <data type="Name"/>
-                  </oneOrMore>
-               </list>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="elementSpec">
-      <element name="elementSpec">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(element specification) documents the structure, content, and purpose of a single element type. [22.5. Element Specifications 22. Documentation Elements]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <choice>
-                  <ref name="model.glossLike"/>
-                  <ref name="model.descLike"/>
-               </choice>
-            </zeroOrMore>
-            <optional>
-               <ref name="content"/>
-            </optional>
-            <optional>
-               <ref name="valList"/>
-            </optional>
-            <optional>
-               <ref name="attList"/>
-            </optional>
-            <zeroOrMore>
-               <empty/>
-            </zeroOrMore>
-         </group>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-elementSpec-child-constraint-based-on-mode-constraint-rule-13">
-            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xmlns="http://www.tei-c.org/ns/1.0"
-                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:elementSpec[ @mode eq 'delete' ]">
-               <sch:report test="child::*">This elementSpec element has a mode= of "delete" even though it has child elements. Change the mode= to "add", "change", or "replace", or remove the child elements.</sch:report>
-            </sch:rule>
-            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xmlns="http://www.tei-c.org/ns/1.0"
-                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:elementSpec[ @mode = ('add','change','replace') ]">
-               <sch:assert test="child::* | (@* except (@mode, @ident))">This elementSpec element has a mode= of "<sch:value-of select="@mode"/>", but does not have any child elements or schema-changing attributes. Specify child elements, use validUntil=, predeclare=, ns=, or prefix=, or change the mode= to "delete".</sch:assert>
-            </sch:rule>
-         </pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.identified.attribute.ident"/>
-         <ref name="att.deprecated.attribute.validUntil"/>
-         <ref name="att.namespaceable.attributes"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="mode"
-                       a:defaultValue="add">
-               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
-               <choice>
-                  <value>change</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="classSpec">
-      <element name="classSpec">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(class specification) contains reference information for a TEI element class; that is a group of elements which appear together in content models, or which share some common attribute, or both. [22.3. Specification Elements 22.6. Class Specifications]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <choice>
-                  <ref name="model.glossLike"/>
-                  <ref name="model.descLike"/>
-               </choice>
-            </zeroOrMore>
-            <optional>
-               <ref name="attList"/>
-            </optional>
-         </group>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.identified.attribute.ident"/>
-         <ref name="att.deprecated.attribute.validUntil"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="mode"
-                       a:defaultValue="add">
-               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
-               <choice>
-                  <value>change</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <attribute name="type">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates whether this is a model class or an attribute class</a:documentation>
-            <choice>
-               <value>atts</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-            </choice>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="content">
-      <element name="content">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(content model) contains a declaration of the intended content model for the element (or other construct) being specified. [22.5. Element Specifications]</a:documentation>
-         <choice>
-            <ref name="valList"/>
-            <oneOrMore>
-               <ref name="model.contentPart"/>
-            </oneOrMore>
-            <oneOrMore>
-               <ref name="anyElement-content"/>
-            </oneOrMore>
-         </choice>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="sequence">
-      <element name="sequence">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates that the constructs referenced by its children form a sequence [22.5.1. Defining Content Models]</a:documentation>
-         <oneOrMore>
-            <ref name="model.contentPart"/>
-         </oneOrMore>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-sequence-sequencechilden-constraint-assert-12">
-            <rule context="tei:sequence">
-               <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                           xmlns:xi="http://www.w3.org/2001/XInclude"
-                           xmlns="http://www.tei-c.org/ns/1.0"
-                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                           xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                           test="count(*)&gt;1">The sequence element must have at least two child elements</sch:assert>
-            </rule>
-         </pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <optional>
-            <attribute name="preserveOrder">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">if true, indicates that the order in which component elements of a sequence appear in a document must correspond to the order in which they are given in the content model.</a:documentation>
-               <data type="boolean"/>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="alternate">
-      <element name="alternate">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates that the constructs referenced by its children form an alternation [22.5.1. Defining Content Models]</a:documentation>
-         <oneOrMore>
-            <choice>
-               <ref name="valList"/>
-               <ref name="model.contentPart"/>
-            </choice>
-         </oneOrMore>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-alternate-alternatechilden-constraint-assert-13">
-            <rule context="tei:alternate">
-               <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                           xmlns:xi="http://www.w3.org/2001/XInclude"
-                           xmlns="http://www.tei-c.org/ns/1.0"
-                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                           xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                           test="count(*)&gt;1">The alternate element must have at least two child elements</sch:assert>
-            </rule>
-         </pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="attList">
-      <element name="attList">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(attribute list) contains documentation for all the attributes associated with this element, as a series of <code xmlns="http://www.w3.org/1999/xhtml">&lt;attDef&gt;</code> elements. [22.5. Element Specifications 22.6. Class Specifications]</a:documentation>
-         <oneOrMore>
-            <choice>
-               <ref name="attDef"/>
-               <ref name="attList"/>
-            </choice>
-         </oneOrMore>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="attDef">
-      <element name="attDef">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(attribute definition) contains the definition of a single attribute. [22.5.3. Attribute List Specification]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <choice>
-                  <ref name="model.glossLike"/>
-                  <ref name="model.descLike"/>
-               </choice>
-            </zeroOrMore>
-            <optional>
-               <choice>
-                  <ref name="valList"/>
-               </choice>
-            </optional>
-         </group>
-         <ns xmlns="http://purl.oclc.org/dsdl/schematron"
-             xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-             xmlns:xi="http://www.w3.org/2001/XInclude"
-             xmlns:rng="http://relaxng.org/ns/structure/1.0"
-             xmlns:s="http://purl.oclc.org/dsdl/schematron"
-             prefix="teix"
-             uri="http://www.tei-c.org/ns/Examples"/>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-attDefContents-constraint-assert-14">
-            <rule context="tei:attDef">
-               <assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                       xmlns:xi="http://www.w3.org/2001/XInclude"
-                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                       test="ancestor::teix:egXML[@valid='feasible'] or @mode eq 'change' or @mode eq 'delete' or tei:datatype or tei:valList[@type='closed']">Attribute: the definition of the @<value-of select="@ident"/> attribute in the <value-of select="ancestor::*[@ident][1]/@ident"/>
-                  <value-of select="' '"/>
-                  <value-of select="local-name(ancestor::*[@ident][1])"/> should have a closed valList or a datatype</assert>
-            </rule>
-         </pattern>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-noDefault4Required-constraint-rule-15">
-            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xmlns="http://www.tei-c.org/ns/1.0"
-                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:attDef[@usage eq 'req']">
-               <sch:report test="tei:defaultVal">Since the @<sch:value-of select="@ident"/> attribute is required, it will always be specified. Thus the default value (of "<sch:value-of select="normalize-space(tei:defaultVal)"/>") will never be used. Either change the definition of the attribute so it is not required ("rec" or "opt"), or remove the defaultVal element.</sch:report>
-            </sch:rule>
-         </pattern>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-defaultIsInClosedList-twoOrMore-constraint-rule-16">
-            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xmlns="http://www.tei-c.org/ns/1.0"
-                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:attDef[   tei:defaultVal   and   tei:valList[@type eq 'closed']   and   tei:datatype[    @maxOccurs &gt; 1    or    @minOccurs &gt; 1    or    @maxOccurs = 'unbounded'    ]   ]">
-               <sch:assert test="     tokenize(normalize-space(tei:defaultVal),' ')     =     tei:valList/tei:valItem/@ident">In the <sch:value-of select="local-name(ancestor::*[@ident][1])"/> defining
-        <sch:value-of select="ancestor::*[@ident][1]/@ident"/> the default value of the
-        @<sch:value-of select="@ident"/> attribute is not among the closed list of possible
-        values</sch:assert>
-            </sch:rule>
-         </pattern>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-defaultIsInClosedList-one-constraint-rule-17">
-            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xmlns="http://www.tei-c.org/ns/1.0"
-                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:attDef[   tei:defaultVal   and   tei:valList[@type eq 'closed']   and   tei:datatype[    not(@maxOccurs)    or (    if ( @maxOccurs castable as xs:integer )     then ( @maxOccurs cast as xs:integer eq 1 )     else false()    )]   ]">
-               <sch:assert test="string(tei:defaultVal)      =      tei:valList/tei:valItem/@ident">In the <sch:value-of select="local-name(ancestor::*[@ident][1])"/> defining
-        <sch:value-of select="ancestor::*[@ident][1]/@ident"/> the default value of the
-        @<sch:value-of select="@ident"/> attribute is not among the closed list of possible
-        values</sch:assert>
-            </sch:rule>
-         </pattern>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.identified.attribute.ident"/>
-         <ref name="att.deprecated.attribute.validUntil"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="mode"
-                       a:defaultValue="add">
-               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
-               <choice>
-                  <value>change</value>
-                  <a:documentation/>
-                  <value>delete</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="usage"
-                       a:defaultValue="opt">
-               <a:documentation>specifies the optionality of the attribute.</a:documentation>
-               <choice>
-                  <value>opt</value>
-                  <a:documentation/>
-                  <value>req</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="valItem">
-      <element name="valItem">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">documents a single value in a predefined list of values. [22.5.3. Attribute List Specification]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="model.glossLike"/>
-            </zeroOrMore>
-            <optional>
-               <group>
-                  <oneOrMore>
-                     <ref name="model.descLike"/>
-                  </oneOrMore>
-                  <zeroOrMore>
-                     <group>
-                        <ref name="model.glossLike"/>
-                        <zeroOrMore>
-                           <ref name="model.descLike"/>
-                        </zeroOrMore>
-                     </group>
-                  </zeroOrMore>
-               </group>
-            </optional>
-         </group>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.deprecated.attribute.validUntil"/>
-         <attribute name="ident">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the value concerned.</a:documentation>
-            <data type="string"/>
-         </attribute>
-         <empty/>
-      </element>
-   </define>
-   <define name="valList">
-      <element name="valList">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(value list) contains one or more <code xmlns="http://www.w3.org/1999/xhtml">&lt;valItem&gt;</code> elements defining possible values. [22.5.3. Attribute List Specification]</a:documentation>
-         <zeroOrMore>
-            <ref name="valItem"/>
-         </zeroOrMore>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.deprecated.attribute.validUntil"/>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="mode"
-                       a:defaultValue="add">
-               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
-               <choice>
-                  <value>add</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                       name="type"
-                       a:defaultValue="open">
-               <a:documentation>specifies the extensibility of the list of values specified.</a:documentation>
-               <choice>
-                  <value>closed</value>
-                  <a:documentation/>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
    <define name="teiHeader">
       <element name="teiHeader">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(TEI header) supplies descriptive and declarative metadata associated with a digital resource or set of resources. [2.1.1. The TEI Header and Its Components 15.1. Varieties of Composite Text]</a:documentation>
@@ -4626,12 +3298,12 @@ Child elements of <name/> are only allowed when an external module is being load
                     xmlns:rng="http://relaxng.org/ns/structure/1.0"
                     xmlns:s="http://purl.oclc.org/dsdl/schematron">
             <s:rule context="tei:TEI/tei:text/descendant::tei:div">
-               <s:assert test="tei:head">Un élément div dans le body doit
+               <s:assert test="tei:head">Un élément div dans le text doit
                                  obligatoirement disposer d'un élément head.</s:assert>
             </s:rule>
          </s:pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-div-abstractModel-structure-l-constraint-report-9">
+                  id="oddbyexample-div-abstractModel-structure-l-constraint-report-6">
             <rule context="tei:div">
                <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -4641,7 +3313,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-div-abstractModel-structure-p-constraint-report-10">
+                  id="oddbyexample-div-abstractModel-structure-p-constraint-report-7">
             <rule context="tei:div">
                <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5062,6 +3734,1316 @@ Child elements of <name/> are only allowed when an external module is being load
          <empty/>
       </element>
    </define>
+   <define name="att.datable.custom.attribute.when-custom">
+      <optional>
+         <attribute name="when-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.datable.custom.attribute.notBefore-custom">
+      <optional>
+         <attribute name="notBefore-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.datable.custom.attribute.notAfter-custom">
+      <optional>
+         <attribute name="notAfter-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.datable.custom.attribute.from-custom">
+      <optional>
+         <attribute name="from-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.datable.custom.attribute.to-custom">
+      <optional>
+         <attribute name="to-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.datable.custom.attribute.datingPoint">
+      <optional>
+         <attribute name="datingPoint">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to some location defining a named point in time with reference to which the datable item is understood to have occurred</a:documentation>
+            <data type="anyURI"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.datable.custom.attribute.datingMethod">
+      <optional>
+         <attribute name="datingMethod">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to a <code xmlns="http://www.w3.org/1999/xhtml">&lt;calendar&gt;</code> element or other means of interpreting the values of the custom dating attributes.</a:documentation>
+            <data type="anyURI"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="persName">
+      <element name="persName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <s:pattern xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xmlns="http://www.tei-c.org/ns/1.0"
+                    xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                    xmlns:s="http://purl.oclc.org/dsdl/schematron">
+            <s:rule context="tei:TEI/tei:text/descendant::tei:persName">
+               <s:assert test="@ref">Un élément persName dans le text doit
+                                 obligatoirement disposer d'un attribut ref.</s:assert>
+            </s:rule>
+         </s:pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.datable.w3c.attribute.when"/>
+         <ref name="att.datable.w3c.attribute.notBefore"/>
+         <ref name="att.datable.w3c.attribute.notAfter"/>
+         <ref name="att.datable.w3c.attribute.from"/>
+         <ref name="att.datable.w3c.attribute.to"/>
+         <ref name="att.datable.custom.attribute.when-custom"/>
+         <ref name="att.datable.custom.attribute.notBefore-custom"/>
+         <ref name="att.datable.custom.attribute.notAfter-custom"/>
+         <ref name="att.datable.custom.attribute.from-custom"/>
+         <ref name="att.datable.custom.attribute.to-custom"/>
+         <ref name="att.datable.custom.attribute.datingPoint"/>
+         <ref name="att.datable.custom.attribute.datingMethod"/>
+         <ref name="att.editLike.attributes"/>
+         <ref name="att.canonical.attribute.ref"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="full"
+                       a:defaultValue="yes">
+               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
+               <choice>
+                  <value>yes</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="surname">
+      <element name="surname">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(surname) contains a family (inherited) name, as opposed to a given, baptismal, or nick name. [13.2.1. Personal Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="full"
+                       a:defaultValue="yes">
+               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
+               <choice>
+                  <value>yes</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="forename">
+      <element name="forename">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forename) contains a forename, given or baptismal name. [13.2.1. Personal Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="full"
+                       a:defaultValue="yes">
+               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
+               <choice>
+                  <value>yes</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="roleName">
+      <element name="roleName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(role name) contains a name component which indicates that the referent has a particular role or position in society, such as an official title or rank. [13.2.1. Personal Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="full"
+                       a:defaultValue="yes">
+               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
+               <choice>
+                  <value>yes</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
+            <choice>
+               <value>honorific</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <value>nobility</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </choice>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="placeName">
+      <element name="placeName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <s:pattern xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xmlns="http://www.tei-c.org/ns/1.0"
+                    xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                    xmlns:s="http://purl.oclc.org/dsdl/schematron">
+            <s:rule context="tei:TEI/tei:text/descendant::tei:placeName">
+               <s:assert test="@ref">Un élément placeName dans le text doit
+                                 obligatoirement disposer d'un attribut ref.</s:assert>
+            </s:rule>
+         </s:pattern>
+         <ref name="att.datable.w3c.attribute.when"/>
+         <ref name="att.datable.w3c.attribute.notBefore"/>
+         <ref name="att.datable.w3c.attribute.notAfter"/>
+         <ref name="att.datable.w3c.attribute.from"/>
+         <ref name="att.datable.w3c.attribute.to"/>
+         <ref name="att.datable.custom.attribute.when-custom"/>
+         <ref name="att.datable.custom.attribute.notBefore-custom"/>
+         <ref name="att.datable.custom.attribute.notAfter-custom"/>
+         <ref name="att.datable.custom.attribute.from-custom"/>
+         <ref name="att.datable.custom.attribute.to-custom"/>
+         <ref name="att.datable.custom.attribute.datingPoint"/>
+         <ref name="att.datable.custom.attribute.datingMethod"/>
+         <ref name="att.editLike.attributes"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.canonical.attribute.ref"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="full"
+                       a:defaultValue="yes">
+               <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
+               <choice>
+                  <value>yes</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="country">
+      <element name="country">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(country) contains the name of a geo-political unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc. [13.2.3. Place Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.datable.w3c.attribute.when"/>
+         <ref name="att.datable.w3c.attribute.notBefore"/>
+         <ref name="att.datable.w3c.attribute.notAfter"/>
+         <ref name="att.datable.w3c.attribute.from"/>
+         <ref name="att.datable.w3c.attribute.to"/>
+         <ref name="att.datable.custom.attribute.when-custom"/>
+         <ref name="att.datable.custom.attribute.notBefore-custom"/>
+         <ref name="att.datable.custom.attribute.notAfter-custom"/>
+         <ref name="att.datable.custom.attribute.from-custom"/>
+         <ref name="att.datable.custom.attribute.to-custom"/>
+         <ref name="att.datable.custom.attribute.datingPoint"/>
+         <ref name="att.datable.custom.attribute.datingMethod"/>
+         <attribute name="key">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides an externally-defined means of identifying the entity (or entities) being named, using a coded value of some kind.</a:documentation>
+            <choice>
+               <value>FR</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <value>IT</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <value>VA</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </choice>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="settlement">
+      <element name="settlement">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(settlement) contains the name of a settlement such as a city, town, or village identified as a single geo-political or administrative unit. [13.2.3. Place Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.datable.w3c.attribute.when"/>
+         <ref name="att.datable.w3c.attribute.notBefore"/>
+         <ref name="att.datable.w3c.attribute.notAfter"/>
+         <ref name="att.datable.w3c.attribute.from"/>
+         <ref name="att.datable.w3c.attribute.to"/>
+         <ref name="att.datable.custom.attribute.when-custom"/>
+         <ref name="att.datable.custom.attribute.notBefore-custom"/>
+         <ref name="att.datable.custom.attribute.notAfter-custom"/>
+         <ref name="att.datable.custom.attribute.from-custom"/>
+         <ref name="att.datable.custom.attribute.to-custom"/>
+         <ref name="att.datable.custom.attribute.datingPoint"/>
+         <ref name="att.datable.custom.attribute.datingMethod"/>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
+               <choice>
+                  <value>city</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="district">
+      <element name="district">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(district) contains the name of any kind of subdivision of a settlement, such as a parish, ward, or other administrative or geographic unit. [13.2.3. Place Names]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.datable.w3c.attribute.when"/>
+         <ref name="att.datable.w3c.attribute.notBefore"/>
+         <ref name="att.datable.w3c.attribute.notAfter"/>
+         <ref name="att.datable.w3c.attribute.from"/>
+         <ref name="att.datable.w3c.attribute.to"/>
+         <ref name="att.datable.custom.attribute.when-custom"/>
+         <ref name="att.datable.custom.attribute.notBefore-custom"/>
+         <ref name="att.datable.custom.attribute.notAfter-custom"/>
+         <ref name="att.datable.custom.attribute.from-custom"/>
+         <ref name="att.datable.custom.attribute.to-custom"/>
+         <ref name="att.datable.custom.attribute.datingPoint"/>
+         <ref name="att.datable.custom.attribute.datingMethod"/>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
+               <choice>
+                  <value>arrondissement</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="listPerson">
+      <element name="listPerson">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of persons) contains a list of descriptions, each of which provides information about an identifiable person or a group of people, for example the participants in a language interaction, or the people referred to in a historical source. [13.3.2. The Person Element 15.2. Contextual Information 2.4. The Profile Description 15.3.2. Declarable Elements]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="model.headLike"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <empty/>
+            </zeroOrMore>
+            <oneOrMore>
+               <group>
+                  <oneOrMore>
+                     <choice>
+                        <ref name="model.personLike"/>
+                        <ref name="listPerson"/>
+                     </choice>
+                  </oneOrMore>
+                  <zeroOrMore>
+                     <empty/>
+                  </zeroOrMore>
+               </group>
+            </oneOrMore>
+         </group>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.sortable.attributes"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="default"
+                       a:defaultValue="false">
+               <a:documentation>indicates whether or not this element is selected by default when its parent is selected.</a:documentation>
+               <choice>
+                  <value>false</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="listPlace">
+      <element name="listPlace">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of places) contains a list of places, optionally followed by a list of relationships (other than containment) defined amongst them. [2.2.7. The Source Description 13.3.4. Places]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="model.headLike"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <empty/>
+            </zeroOrMore>
+            <oneOrMore>
+               <group>
+                  <oneOrMore>
+                     <choice>
+                        <ref name="model.placeLike"/>
+                        <ref name="listPlace"/>
+                     </choice>
+                  </oneOrMore>
+                  <zeroOrMore>
+                     <empty/>
+                  </zeroOrMore>
+               </group>
+            </oneOrMore>
+         </group>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.sortable.attributes"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="default"
+                       a:defaultValue="false">
+               <a:documentation>indicates whether or not this element is selected by default when its parent is selected.</a:documentation>
+               <choice>
+                  <value>false</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="person">
+      <element name="person">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(person) provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [13.3.2. The Person Element 15.2.2. The Participant Description]</a:documentation>
+         <oneOrMore>
+            <ref name="persName"/>
+         </oneOrMore>
+         <ref name="sex"/>
+         <optional>
+            <ref name="note"/>
+         </optional>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.editLike.attributes"/>
+         <ref name="att.sortable.attributes"/>
+         <attribute name="xml:id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
+            <data type="ID"/>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="place">
+      <element name="place">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place) contains data about a geographic location [13.3.4. Places]</a:documentation>
+         <ref name="placeName"/>
+         <optional>
+            <ref name="note"/>
+         </optional>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.editLike.attributes"/>
+         <ref name="att.sortable.attributes"/>
+         <attribute name="xml:id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
+            <data type="ID"/>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="sex">
+      <element name="sex">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sex) specifies the sex of a person. [13.3.2.1. Personal Characteristics]</a:documentation>
+         <ref name="macro.phraseSeq"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.datable.w3c.attribute.when"/>
+         <ref name="att.datable.w3c.attribute.notBefore"/>
+         <ref name="att.datable.w3c.attribute.notAfter"/>
+         <ref name="att.datable.w3c.attribute.from"/>
+         <ref name="att.datable.w3c.attribute.to"/>
+         <ref name="att.datable.custom.attribute.when-custom"/>
+         <ref name="att.datable.custom.attribute.notBefore-custom"/>
+         <ref name="att.datable.custom.attribute.notAfter-custom"/>
+         <ref name="att.datable.custom.attribute.from-custom"/>
+         <ref name="att.datable.custom.attribute.to-custom"/>
+         <ref name="att.datable.custom.attribute.datingPoint"/>
+         <ref name="att.datable.custom.attribute.datingMethod"/>
+         <attribute name="value">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'attribut "value" est requis et doit avoir pour valeur "M" (male = masculin), "F" (female = féminin), "O" (other = autre), "N" (none or not applicable = aucun ou non applicable) ou "U" (unknown = inconnu).</a:documentation>
+            <list>
+               <oneOrMore>
+                  <choice>
+                     <value>M</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>F</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>O</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>N</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>U</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </oneOrMore>
+            </list>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="att.deprecated.attributes">
+      <ref name="att.deprecated.attribute.validUntil"/>
+   </define>
+   <define name="att.deprecated.attribute.validUntil">
+      <optional>
+         <attribute name="validUntil">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides a date before which the construct being defined will not be removed.</a:documentation>
+            <data type="date"/>
+         </attribute>
+      </optional>
+   </define>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="oddbyexample-att.deprecated-validUntil-deprecation-two-month-warning-constraint-rule-10">
+      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@validUntil]">
+         <sch:let name="advance_warning_period"
+                  value="current-date() + xs:dayTimeDuration('P60D')"/>
+         <sch:let name="me_phrase"
+                  value="if (@ident)                                                then concat('The ', @ident )                                                else concat('This ',                                                            local-name(.),                                                            ' of ',                                                            ancestor::tei:*[@ident][1]/@ident )"/>
+         <sch:assert test="@validUntil cast as xs:date  ge  current-date()">
+            <sch:value-of select="                  concat( $me_phrase,                          ' construct is outdated (as of ',                          @validUntil,                          '); ODD processors may ignore it, and its use is no longer supported'                        )"/>
+         </sch:assert>
+         <sch:assert role="nonfatal"
+                     test="@validUntil cast as xs:date  ge  $advance_warning_period">
+            <sch:value-of select="concat( $me_phrase, ' construct becomes outdated on ', @validUntil )"/>
+         </sch:assert>
+      </sch:rule>
+   </pattern>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="oddbyexample-att.deprecated-validUntil-deprecation-should-be-explained-constraint-rule-11">
+      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@validUntil][ not( self::valDesc | self::valList | self::defaultVal )]">
+         <sch:assert test="child::tei:desc[ @type eq 'deprecationInfo']">
+              A deprecated construct should include, whenever possible, an explanation, but this <sch:value-of select="name(.)"/> does not have a child &lt;desc type="deprecationInfo"&gt;</sch:assert>
+      </sch:rule>
+   </pattern>
+   <define name="att.namespaceable.attributes">
+      <ref name="att.namespaceable.attribute.ns"/>
+   </define>
+   <define name="att.namespaceable.attribute.ns">
+      <optional>
+         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                    name="ns"
+                    a:defaultValue="http://www.tei-c.org/ns/1.0">
+            <a:documentation>(namespace) specifies the namespace to which this element belongs</a:documentation>
+            <data type="anyURI"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att">
+      <element name="att">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(attribute) contains the name of an attribute appearing within running text. [22. Documentation Elements]</a:documentation>
+         <data type="Name"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="gi">
+      <element name="gi">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(element name) contains the name (generic identifier) of an element. [22. Documentation Elements 22.5. Element Specifications]</a:documentation>
+         <data type="Name"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="val">
+      <element name="val">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(value) contains a single attribute value. [22. Documentation Elements 22.5.3. Attribute List Specification]</a:documentation>
+         <text/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="classRef">
+      <element name="classRef">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to the specification for an attribute or model class which is to be included in a schema [22.6. Class Specifications]</a:documentation>
+         <empty/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <choice>
+            <optional>
+               <attribute name="include">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <text/>
+               </attribute>
+            </optional>
+            <optional>
+               <attribute name="except">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <text/>
+               </attribute>
+            </optional>
+         </choice>
+         <attribute name="key">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">the identifier used for the required class within the source indicated.</a:documentation>
+            <data type="NCName"/>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="elementRef">
+      <element name="elementRef">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to the specification for some element which is to be included in a schema [22.2. Modules and Schemas]</a:documentation>
+         <empty/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.repeatable.attributes"/>
+         <attribute name="key">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">the identifier used for the required element within the source indicated.</a:documentation>
+            <data type="NCName"/>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="moduleRef">
+      <element name="moduleRef">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(module reference) references a module which is to be incorporated into a schema. [22.2. Modules and Schemas]</a:documentation>
+         <optional>
+            <ref name="content"/>
+         </optional>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-moduleRef-modref-constraint-rule-12">
+            <rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                  context="tei:moduleRef">
+               <report test="* and @key">
+Child elements of <name/> are only allowed when an external module is being loaded
+        </report>
+            </rule>
+         </pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <choice>
+            <optional>
+               <attribute name="include">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a list of the elements which are to be copied from the specified module into the schema being defined.</a:documentation>
+                  <list>
+                     <zeroOrMore>
+                        <data type="NCName"/>
+                     </zeroOrMore>
+                  </list>
+               </attribute>
+            </optional>
+            <optional>
+               <attribute name="except">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <text/>
+               </attribute>
+            </optional>
+         </choice>
+         <choice>
+            <optional>
+               <attribute name="key">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">the name of a TEI module</a:documentation>
+                  <data type="NCName"/>
+               </attribute>
+            </optional>
+            <optional>
+               <attribute name="url">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <text/>
+               </attribute>
+            </optional>
+         </choice>
+         <empty/>
+      </element>
+   </define>
+   <define name="schemaSpec">
+      <element name="schemaSpec">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(schema specification) generates a TEI-conformant schema and documentation for it. [2.3. The Encoding Description 22.2. Modules and Schemas 23.5.1. Making a Unified ODD]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <choice>
+                  <ref name="model.glossLike"/>
+                  <ref name="model.descLike"/>
+               </choice>
+            </zeroOrMore>
+            <zeroOrMore>
+               <choice>
+                  <ref name="model.oddRef"/>
+                  <ref name="model.oddDecl"/>
+               </choice>
+            </zeroOrMore>
+         </group>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-schemaSpec-deprecate_schemaSpec_in_bizarre_places-constraint-rule-13">
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:schemaSpec|teix:schemaSpec">
+               <sch:assert test="             parent::teix:egXML      | parent::tei:encodingDesc  | parent::teix:encodingDesc      | parent::tei:front         | parent::teix:front      | parent::tei:back          | parent::teix:back      | parent::tei:body          | parent::teix:body      | parent::tei:div           | parent::teix:div      | parent::tei:div1          | parent::teix:div1      | parent::tei:div2          | parent::teix:div2      | parent::tei:div3          | parent::teix:div3      | parent::tei:div4          | parent::teix:div4      | parent::tei:div5          | parent::teix:div5      | parent::tei:div6          | parent::teix:div6      | parent::tei:div7          | parent::teix:div7"
+                           role="nonfatal">WARNING: use of deprecated construct — the “schemaSpec” element will no longer be a valid child of “<sch:value-of select="name(..)"/>” as of 2021-10-23; instead, it should be a child of “front”, “body”, “back”, “encodingDesc”, or a division element.</sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.identified.attribute.ident"/>
+         <ref name="att.deprecated.attribute.validUntil"/>
+         <ref name="att.namespaceable.attributes"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="start"
+                       a:defaultValue="TEI">
+               <a:documentation>specifies entry points to the schema, i.e. which patterns may be used as the root of documents conforming to it.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="Name"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="elementSpec">
+      <element name="elementSpec">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(element specification) documents the structure, content, and purpose of a single element type. [22.5. Element Specifications 22. Documentation Elements]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <choice>
+                  <ref name="model.glossLike"/>
+                  <ref name="model.descLike"/>
+               </choice>
+            </zeroOrMore>
+            <optional>
+               <ref name="content"/>
+            </optional>
+            <optional>
+               <ref name="valList"/>
+            </optional>
+            <optional>
+               <ref name="attList"/>
+            </optional>
+            <zeroOrMore>
+               <empty/>
+            </zeroOrMore>
+         </group>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-elementSpec-child-constraint-based-on-mode-constraint-rule-14">
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:elementSpec[ @mode eq 'delete' ]">
+               <sch:report test="child::*">This elementSpec element has a mode= of "delete" even though it has child elements. Change the mode= to "add", "change", or "replace", or remove the child elements.</sch:report>
+            </sch:rule>
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:elementSpec[ @mode = ('add','change','replace') ]">
+               <sch:assert test="child::* | (@* except (@mode, @ident))">This elementSpec element has a mode= of "<sch:value-of select="@mode"/>", but does not have any child elements or schema-changing attributes. Specify child elements, use validUntil=, predeclare=, ns=, or prefix=, or change the mode= to "delete".</sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.identified.attribute.ident"/>
+         <ref name="att.deprecated.attribute.validUntil"/>
+         <ref name="att.namespaceable.attributes"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="mode"
+                       a:defaultValue="add">
+               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
+               <choice>
+                  <value>change</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="classSpec">
+      <element name="classSpec">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(class specification) contains reference information for a TEI element class; that is a group of elements which appear together in content models, or which share some common attribute, or both. [22.3. Specification Elements 22.6. Class Specifications]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <choice>
+                  <ref name="model.glossLike"/>
+                  <ref name="model.descLike"/>
+               </choice>
+            </zeroOrMore>
+            <optional>
+               <ref name="attList"/>
+            </optional>
+         </group>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.identified.attribute.ident"/>
+         <ref name="att.deprecated.attribute.validUntil"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="mode"
+                       a:defaultValue="add">
+               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
+               <choice>
+                  <value>change</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates whether this is a model class or an attribute class</a:documentation>
+            <choice>
+               <value>atts</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </choice>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="content">
+      <element name="content">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(content model) contains a declaration of the intended content model for the element (or other construct) being specified. [22.5. Element Specifications]</a:documentation>
+         <choice>
+            <ref name="valList"/>
+            <oneOrMore>
+               <ref name="model.contentPart"/>
+            </oneOrMore>
+            <oneOrMore>
+               <ref name="anyElement-content"/>
+            </oneOrMore>
+         </choice>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="sequence">
+      <element name="sequence">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates that the constructs referenced by its children form a sequence [22.5.1. Defining Content Models]</a:documentation>
+         <oneOrMore>
+            <ref name="model.contentPart"/>
+         </oneOrMore>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-sequence-sequencechilden-constraint-assert-13">
+            <rule context="tei:sequence">
+               <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xi="http://www.w3.org/2001/XInclude"
+                           xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                           test="count(*)&gt;1">The sequence element must have at least two child elements</sch:assert>
+            </rule>
+         </pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <optional>
+            <attribute name="preserveOrder">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">if true, indicates that the order in which component elements of a sequence appear in a document must correspond to the order in which they are given in the content model.</a:documentation>
+               <data type="boolean"/>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="alternate">
+      <element name="alternate">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates that the constructs referenced by its children form an alternation [22.5.1. Defining Content Models]</a:documentation>
+         <oneOrMore>
+            <choice>
+               <ref name="valList"/>
+               <ref name="model.contentPart"/>
+            </choice>
+         </oneOrMore>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-alternate-alternatechilden-constraint-assert-14">
+            <rule context="tei:alternate">
+               <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xi="http://www.w3.org/2001/XInclude"
+                           xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                           test="count(*)&gt;1">The alternate element must have at least two child elements</sch:assert>
+            </rule>
+         </pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="attList">
+      <element name="attList">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(attribute list) contains documentation for all the attributes associated with this element, as a series of <code xmlns="http://www.w3.org/1999/xhtml">&lt;attDef&gt;</code> elements. [22.5. Element Specifications 22.6. Class Specifications]</a:documentation>
+         <oneOrMore>
+            <choice>
+               <ref name="attDef"/>
+               <ref name="attList"/>
+            </choice>
+         </oneOrMore>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="attDef">
+      <element name="attDef">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(attribute definition) contains the definition of a single attribute. [22.5.3. Attribute List Specification]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <choice>
+                  <ref name="model.glossLike"/>
+                  <ref name="model.descLike"/>
+               </choice>
+            </zeroOrMore>
+            <optional>
+               <choice>
+                  <ref name="valList"/>
+               </choice>
+            </optional>
+         </group>
+         <ns xmlns="http://purl.oclc.org/dsdl/schematron"
+             xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+             xmlns:xi="http://www.w3.org/2001/XInclude"
+             xmlns:rng="http://relaxng.org/ns/structure/1.0"
+             xmlns:s="http://purl.oclc.org/dsdl/schematron"
+             prefix="teix"
+             uri="http://www.tei-c.org/ns/Examples"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-attDef-attDefContents-constraint-assert-15">
+            <rule context="tei:attDef">
+               <assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                       xmlns:xi="http://www.w3.org/2001/XInclude"
+                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                       test="ancestor::teix:egXML[@valid='feasible'] or @mode eq 'change' or @mode eq 'delete' or tei:datatype or tei:valList[@type='closed']">Attribute: the definition of the @<value-of select="@ident"/> attribute in the <value-of select="ancestor::*[@ident][1]/@ident"/>
+                  <value-of select="' '"/>
+                  <value-of select="local-name(ancestor::*[@ident][1])"/> should have a closed valList or a datatype</assert>
+            </rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-attDef-noDefault4Required-constraint-rule-16">
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:attDef[@usage eq 'req']">
+               <sch:report test="tei:defaultVal">Since the @<sch:value-of select="@ident"/> attribute is required, it will always be specified. Thus the default value (of "<sch:value-of select="normalize-space(tei:defaultVal)"/>") will never be used. Either change the definition of the attribute so it is not required ("rec" or "opt"), or remove the defaultVal element.</sch:report>
+            </sch:rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-attDef-defaultIsInClosedList-twoOrMore-constraint-rule-17">
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:attDef[   tei:defaultVal   and   tei:valList[@type eq 'closed']   and   tei:datatype[    @maxOccurs &gt; 1    or    @minOccurs &gt; 1    or    @maxOccurs = 'unbounded'    ]   ]">
+               <sch:assert test="     tokenize(normalize-space(tei:defaultVal),' ')     =     tei:valList/tei:valItem/@ident">In the <sch:value-of select="local-name(ancestor::*[@ident][1])"/> defining
+        <sch:value-of select="ancestor::*[@ident][1]/@ident"/> the default value of the
+        @<sch:value-of select="@ident"/> attribute is not among the closed list of possible
+        values</sch:assert>
+            </sch:rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-attDef-defaultIsInClosedList-one-constraint-rule-18">
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:attDef[   tei:defaultVal   and   tei:valList[@type eq 'closed']   and   tei:datatype[    not(@maxOccurs)    or (    if ( @maxOccurs castable as xs:integer )     then ( @maxOccurs cast as xs:integer eq 1 )     else false()    )]   ]">
+               <sch:assert test="string(tei:defaultVal)      =      tei:valList/tei:valItem/@ident">In the <sch:value-of select="local-name(ancestor::*[@ident][1])"/> defining
+        <sch:value-of select="ancestor::*[@ident][1]/@ident"/> the default value of the
+        @<sch:value-of select="@ident"/> attribute is not among the closed list of possible
+        values</sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.identified.attribute.ident"/>
+         <ref name="att.deprecated.attribute.validUntil"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="mode"
+                       a:defaultValue="add">
+               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
+               <choice>
+                  <value>change</value>
+                  <a:documentation/>
+                  <value>delete</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="usage"
+                       a:defaultValue="opt">
+               <a:documentation>specifies the optionality of the attribute.</a:documentation>
+               <choice>
+                  <value>opt</value>
+                  <a:documentation/>
+                  <value>req</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="valItem">
+      <element name="valItem">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">documents a single value in a predefined list of values. [22.5.3. Attribute List Specification]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="model.glossLike"/>
+            </zeroOrMore>
+            <optional>
+               <group>
+                  <oneOrMore>
+                     <ref name="model.descLike"/>
+                  </oneOrMore>
+                  <zeroOrMore>
+                     <group>
+                        <ref name="model.glossLike"/>
+                        <zeroOrMore>
+                           <ref name="model.descLike"/>
+                        </zeroOrMore>
+                     </group>
+                  </zeroOrMore>
+               </group>
+            </optional>
+         </group>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.deprecated.attribute.validUntil"/>
+         <attribute name="ident">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the value concerned.</a:documentation>
+            <data type="string"/>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
+   <define name="valList">
+      <element name="valList">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(value list) contains one or more <code xmlns="http://www.w3.org/1999/xhtml">&lt;valItem&gt;</code> elements defining possible values. [22.5.3. Attribute List Specification]</a:documentation>
+         <zeroOrMore>
+            <ref name="valItem"/>
+         </zeroOrMore>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.deprecated.attribute.validUntil"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="mode"
+                       a:defaultValue="add">
+               <a:documentation>specifies the effect of this declaration on its parent object.</a:documentation>
+               <choice>
+                  <value>add</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="type"
+                       a:defaultValue="open">
+               <a:documentation>specifies the extensibility of the list of values specified.</a:documentation>
+               <choice>
+                  <value>closed</value>
+                  <a:documentation/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
    <define name="particDesc">
       <element name="particDesc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(participation description) describes the identifiable speakers, voices, or other participants in any kind of text or other persons named or otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information]</a:documentation>
@@ -5135,6 +5117,24 @@ Child elements of <name/> are only allowed when an external module is being load
                </choice>
             </attribute>
          </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="lang">
+      <element name="lang">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(language name) contains the name of a language mentioned in etymological or other linguistic discussion. [9.3.4. Etymological Information]</a:documentation>
+         <ref name="macro.paraContent"/>
+         <ref name="att.global.attribute.xmlid"/>
+         <ref name="att.global.attribute.n"/>
+         <ref name="att.global.attribute.xmllang"/>
+         <ref name="att.global.attribute.xmlbase"/>
+         <ref name="att.global.attribute.xmlspace"/>
+         <ref name="att.global.rendition.attribute.rend"/>
+         <ref name="att.global.rendition.attribute.style"/>
+         <ref name="att.global.rendition.attribute.rendition"/>
+         <ref name="att.global.responsibility.attribute.cert"/>
+         <ref name="att.global.responsibility.attribute.resp"/>
+         <ref name="att.lexicographic.attributes"/>
          <empty/>
       </element>
    </define>
