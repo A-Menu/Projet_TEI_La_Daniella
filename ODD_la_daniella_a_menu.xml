@@ -40,8 +40,12 @@
          <div1>
             <head>Documentation</head>
 
-            <p><emph rend="italic">Note préliminaire</emph> : Ce document respecte le TEI all.</p>
-
+            <p><emph rend="italic">Notes préliminaires</emph> :<list>
+                  <item>Ce document respecte le TEI all</item>
+                  <item>L'encodage XML-TEI ne déclare pas d'entités ; aucune DTD n'a donc été
+                     créée</item>
+               </list>
+            </p>
 
             <div2>
                <head>Introduction</head>
