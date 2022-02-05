@@ -7,8 +7,7 @@
          <titleStmt>
             <title type="main">Guide d'encodage du roman-feuilleton "La Daniella", écrit par George
                Sand et publié par <emph rend="italic">La Presse</emph> (numéro du <date
-                  when-iso="1857-01-14">14 janvier 1857</date>).</title>
-            <title type="sub">ODD créée avec ODD by Example</title>
+                  when-iso="1857-01-14">14 janvier 1857</date>)</title>
             <author>
                <persName xml:id="a_menu">
                   <forename>Ariane</forename>
@@ -50,47 +49,30 @@
                <p> La présente ODD vise à documenter l'encodage en XML-TEI du roman <emph>La
                      Daniella</emph>. Écrit par George Sand, celui-ci a été publié de janvier à mars
                   1857 sous la forme de feuilletons par le journal <emph>La Presse</emph>.
-                  L'encodage porte en l'espèce sur une partie du chapitre VIII, paru dans le numéro
-                  du 14 janvier 1857 du journal. </p>
+                  L'encodage porte en l'espèce sur la fin du chapitre VIII, parue dans le numéro du
+                  14 janvier 1857 du journal. </p>
 
-               <p>En plus de rensiegner les balises et attributs utilisés, cette ODD contient
-                  également de n</p>
+               <p>Cette ODD a été créée avec ODD by Example et se compose de deux parties : la
+                  documentation et les règles de validation appliquées au document TEI.</p>
+               <p>La documentation vient présenter les éléments et attributs utilisés pour
+                  l'encodage en XML-TEI ainsi que les règles éventuellement appliquées. Elle se veut
+                  pédagogique et détaillée en vue de permettre à une personne tierce de poursuivre
+                  l'encodage suivant le même schéma, ou de permettre à un utilisateur d'exploiter
+                  l'encodage réalisé.</p>
 
-               <p>Cette documentation a pour but d'expliquer comment a été encodée en XML-TEI
-                  l'oeuvre citée en titre, ainsi que les objectifs de ce schéma. Cet ODD présente
-                  des principes stricts d'encodage dans le but de produire un document exploitable
-                  scientifiquement.</p>
-               <p>Cet encodage orbite autour de la production littéraire qu'est le roman-feuilleton.
-                  Le schéma a été pensé de sorte à pouvoir proposer des données qui permettront de
-                  mieux comprendre la structure de l'oeuvre encodée, mais aussi comment ont été
-                  conçus les personnages par l'auteur, quelles fonctions leur a-t-il attribué et
-                  quelles relations avaient-ils entre eux.</p>
-               <p>Une attention particulière a été portée à la normalisation des données, afin de
-                  faciliter une réexploitation de celles-ci.</p>
-
-               <p>Ces résultats sont également exploitables à plusieurs échelles. Une première
-                  échelle possède une portée intérieure à l'oeuvre encodée ici, tandis que la
-                  seconde échelle se concentre sur le roman-feuilleton en général. Ces degrés
-                  d'analyse se retrouvent de manière confondue dans les objectifs suivants : <list>
-                     <item>Mettre en relation <emph rend="italic">Les fils de Famille</emph> avec un
-                        corpus plus important de romans-feuilletons.</item>
-                     <item>Présenter l'histoire de la librairie Michel Lévy Frères par rapport aux
-                        oeuvres qu'elle a édité.</item>
-                     <item>Mettre en relief la structure littéraire de l'oeuvre textuelle encodée.
-                        Se faisant, cet encodage est propice à la création d'un outil de recherche
-                        scientifique, facilitant la navigation dans l'oeuvre.</item>
-                     <item>Etudier les rapports entre les personnages, les espaces de parole qui
-                        leurs sont dédiés, ainsi que leur fréquence d'apparition et de mention
-                        respective dans l'oeuvre, selon les contextes, dans le but de produire des
-                        données statistiques. Cet encodage propose de pouvoir réaliser une analyse
-                        poussée des différentes dynamiques propres aux relations entre les
-                        personnages.</item>
-                  </list></p>
-               <p>Nous reviendrons sur ces objectifs au fur et à mesure de ce guide.</p>
-               <p>Ce schéma se concentre sur l'encodage du contenu littéraire du roman d'Eugène Sue.
-                  Les éléments typographiques de l'édition ont donc été volontairement omis.</p>
-
-
+               <p>Les règles de validation sont quant à elles rigoureuses et normalisées afin
+                  d'assurer la qualité des données et de permettre leur exploitation.</p>
+               <p>Une attention particulière a ainsi été donnée à l'encodage de la parole, des
+                  personnages et des lieux. Ces données pourraient être utilisées pour étudier le
+                  style d'écriture de l'autrice, telle que la place accordée à chaque catégorie de
+                  personnages dans le roman ou les lieux visités par ces derniers. Quels personnages
+                  ont le plus de temps de parole ? Quels personnages sont les plus évoqués ? Où se
+                  trouvent les lieux évoqués dans le roman ? etc. </p>
+               <p>Ces données pourraient par la suite être croisées avec d'autres romans-feuilleton
+                  de l'époque ou l'oeuvre de George Sand.</p>
+               <p>Enfin, les éléments de régularisation de l'orthographe et de la syntaxe pourraient
+                  par exemple servir à étudier l'évolution de la langue française depuis 1857, ou
+                  bien la qualité des éditions des romans-feuilletons de l'époque.</p>
             </div2>
 
             <div2>
@@ -160,9 +142,8 @@
                      <head>Le <gi>publicationStmt</gi></head>
                      <p>Le <gi>publicationStmt</gi> donne des informations relatives à la
                         publication du document encodé : responsable (<gi>publisher</gi>), lieu
-                           (<gi>pubPlace</gi>), date (<gi>date</gi> avec un attribut
-                           <att>when-iso</att>), licence et accès (<gi>availability</gi> et
-                           <gi>licence</gi>).</p>
+                           (<gi>pubPlace</gi>), date (<gi>date</gi>), licence et accès
+                           (<gi>availability</gi> et <gi>licence</gi>).</p>
                      <p>La date est indiquée à l'aide d'une balise <gi>date</gi> portant l'attribut
                            <att>when-iso</att> (la valeur de cet attribut est renseignée selon la
                         norme ISO 8601 - https://fr.wikipedia.org/wiki/ISO_8601).</p>
@@ -194,25 +175,25 @@
                         l'éditeur du document source (<gi>publicationStmt</gi>, à ne pas confondre
                         avec le même élément vu ci-dessus, qui se réfère quant à lui au document
                         encodé) et l'extrait encodé (<gi>seriesStmt</gi>).</p>
+                     <p>Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant
+                        l'attribut <att>key</att> (la valeur de cet attribut correspondant au code
+                        du pays selon la norme ISO 3166 -
+                        https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
+                     <p>La date est indiquée à l'aide d'une balise <gi>date</gi> portant l'attribut
+                           <att>when-iso</att> (la valeur de cet attribut est renseignée selon la
+                        norme ISO 8601 - https://fr.wikipedia.org/wiki/ISO_8601).</p>
+                     <p>Un lien vers la numérisation du roman-feuilleton est fourni via l'attribut
+                           <att>facs</att> de l'élément <gi>distributor</gi> (élément compris dans
+                        le <gi>publicationStmt</gi>).</p>
                      <p>Le <gi>seriesStmt</gi> a été utilisé pour renseigner le type d'ouvrage et le
-                        passage encodés via des éléments <gi>biblScope</gi> présentant un attribut
+                        passage encodé via des éléments <gi>biblScope</gi> présentant un attribut
                            <att>unit</att>. Un premier élément <gi>biblScope</gi> présente ainsi un
                         attribut <att>unit</att> de valeur <val>"book"</val> et un deuxième de
                         valeur <val>"chapter"</val>. Enfin, un troisième <gi>biblScope</gi>
                         comprend, en plus d'un attribut <att>unit</att> de valeur <val>"page"</val>,
                         un attribut <att>from</att> et un attribut <att>to</att> afin d'indiquer les
                         pages encodées.</p>
-                     <p>La date est indiquée à l'aide d'une balise <gi>date</gi> portant l'attribut
-                           <att>when-iso</att> (la valeur de cet attribut est renseignée selon la
-                        norme ISO 8601 - https://fr.wikipedia.org/wiki/ISO_8601).</p>
-                     <p>Le pays est indiqué à l'aide d'une balise <gi>country</gi> portant
-                        l'attribut <att>key</att> (la valeur de cet attribut correspondant au code
-                        du pays selon la norme ISO 3166 -
-                        https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
 
-                     <p>Notons également qu'un lien vers la numérisation du roman-feuilleton est
-                        fourni via l'attribut <att>facs</att> de l'élément <gi>distributor</gi>
-                        (élément compris dans le <gi>publicationStmt</gi>).</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <sourceDesc>
                            <biblFull>
@@ -325,8 +306,14 @@
                         servant d'identifiant. Cet identifiant nous permettra par la suite de faire
                         référence au personnage dans le texte.</p>
                      <p>L'élément <gi>person</gi> comprend un ou plusieurs éléments
-                           <gi>persName</gi> indiquant les noms désignant un personnage, ainsi
-                        qu'une <gi>note</gi> facultative le décrivant brièvement.</p>
+                           <gi>persName</gi> indiquant les noms désignant un personnage, un élément
+                           <gi>sex</gi>, ainsi qu'une <gi>note</gi> facultative le décrivant
+                        brièvement.</p>
+                     <p>L'élément <gi>sex</gi> est obligatoire et indique le genre du personnage à
+                        l'aide d'un attribut <att>value</att>. Les valeurs possibles de ce dernier
+                        sont : "M" (male = masculin), "F" (female = féminin), "O" (other = autre),
+                        "N" (none or not applicable = aucun ou non applicable) ou "U" (unknown =
+                        inconnu).</p>
                      <p>Si besoin, un titre de noblesse est indiqué au sein d'un élément
                            <gi>roleName</gi> pourvu de l'attribut <att>type</att> de valeur
                            <val>"nobility"</val>, tandis que la civilité est indiqué par une valeur
@@ -364,8 +351,8 @@
                         ville et les codes identifiant le lieu.</p>
                      <p>Le pays est indiqué à l'aide d'une ou plusieurs balises obligatoires
                            <gi>country</gi> portant l'attribut <att>key</att> (la valeur de cet
-                        attribut est une liste fermée correspondant aux codes de l'Italie, la France
-                        et du Vatican selon la norme ISO 3166 -
+                        attribut est une liste fermée correspondant aux codes désignant l'Italie, la
+                        France et le Vatican selon la norme ISO 3166 -
                         https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).</p>
                      <p>La ville est indiquée à l'aide d'une balise facultative <gi>settlement</gi>
                         portant l'attribut <att>type</att> de valeur <val>"city"</val>. Cet élément
@@ -409,7 +396,7 @@
                   Daniella.") et postérieurs ("George Sand. (La suite à demain.)) au roman lui-même.
                   Ces éléments, qui auraient également pu figurer dans la balise <gi>body</gi> au
                   sein d'éléments <gi>div</gi>, ne furent finalement pas encodés afin de se
-                  concentrer uniquement sur le roman lui-même.</p>
+                  concentrer uniquement sur le contenu du roman.</p>
 
 
                <div3>
@@ -421,7 +408,7 @@
                         <att>n</att> vient obligatoirement renseigner le numéro du chapitre
                         (<val>"8"</val> en l'espèce - cette valeur doit nécessairement être un
                      entier positif).</p>
-                  <p>L'en-tête du chapitre doit être indiquée dans l'élément <gi>head</gi>. Chaque
+                  <p>L'en-tête du chapitre doit être indiquée dans un élément <gi>head</gi>. Chaque
                      paragraphe est quant à lui inséré dans un élément <gi>p</gi>.</p>
 
                   <p>Cette méthode permet d'obtenir un encodage homogène du texte et respectant sa
@@ -430,26 +417,27 @@
 
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <div type="chapter" n="8">
+                        <!-- En-tête du chapitre -->
                         <head>VIII (Suite).</head>
+                        <!-- Corps du texte -->
                         <p>
-                           <!-- Corps du paragraphe -->
+                           <!-- Premier paragraphe -->
                         </p>
                         <p>
-                           <!-- etc. -->
+                           <!-- Deuxième paragraphe -->
                         </p>
                      </div>
                   </egXML>
                   <p>Le texte fut initialement encodé en respectant la mise en page du journal.
                      Ainsi, les débuts de page étaient indiqués avec une balise <gi>lb</gi> (qui
-                     renseignait également le facsimilé via l'attribut <att>facs</att>), les débuts
+                     renseignait également le facsimilé via un attribut <att>facs</att>), les débuts
                      de colonne avec une balise <gi>cb</gi> et les nombreux débuts de ligne avec une
                      balise <gi>lb</gi>. Cette façon de procéder avait pour défaut majeur de
                      reproduire les césures de fin de ligne ; ainsi un mot écrit sur deux lignes se
                      voyait également coupé dans l'encodage par le trait d'union. En plus de
                      détériorer la lisibilité, ceci diminuait considérablement les possibilités de
-                     fouille textuelle sur le document. Cette structuration imitant à la lettre la
-                     mise ne page originale fut donc abandonnée pour favoriser le texte du roman
-                     lui-même.</p>
+                     fouille textuelle sur le document. Cette structuration fut donc abandonnée pour
+                     favoriser le contenu du roman.</p>
                </div3>
 
                <div3>
@@ -476,14 +464,14 @@
                         <head>La référence directe</head>
                         <p>Elle consiste en la mention directe de l'une des appellations d'un
                            personnage. Ces appellations ont été préalablement définies dans le
-                           teiHeader à l'aide d'éléments <gi>persName</gi> (voir la section "Le
-                           particDesc"). Dans le corps du texte, l'appellation est alors encadrée
-                           d'une balise <gi>persName</gi> dont l'attribut obligatoire <att>ref</att>
-                           fait référence à l'identifiant du personnage en question. Si
-                           l'appellation comporte un titre de noblesse ou une civilité, ceux-ci sont
-                           également encodés à l'aide d'une balise <gi>roleName</gi> nichée au sein
-                           de l'élément <gi>persName</gi> (voir la section "Le particDesc" pour plus
-                           d'informations).</p>
+                              <gi>teiHeader</gi> à l'aide d'éléments <gi>persName</gi> (voir la
+                           section "Le particDesc"). Dans le corps du texte, l'appellation est alors
+                           encadrée d'une balise <gi>persName</gi> dont l'attribut obligatoire
+                              <att>ref</att> fait référence à l'identifiant du personnage en
+                           question. Si l'appellation comporte un titre de noblesse ou une civilité,
+                           ceux-ci sont également encodés à l'aide d'une balise <gi>roleName</gi>
+                           nichée au sein de l'élément <gi>persName</gi> (voir la section "Le
+                           particDesc" pour plus d'informations).</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                            <persName ref="#tartaglia">Tartaglia</persName>
                         </egXML>
@@ -528,16 +516,16 @@
 
                   <div4>
                      <head>Faire référence aux lieux</head>
-                     <p>Tout comme pour les personnages, les lieux furent considérés dans leurs
-                        mentions directes et indirectes :</p>
+                     <p>Tout comme les personnages, les lieux furent considérés dans leurs mentions
+                        directes et indirectes :</p>
                      <div5>
                         <head>La référence directe</head>
                         <p>Elle consiste en la mention directe de l'une des appellations d'un lieu.
-                           Ces appellations ont été préalablement définies dans le teiHeader à
-                           l'aide d'éléments <gi>name</gi> (voir la section "Le settingDesc"). Dans
-                           le corps du texte, l'appellation est alors encadrée d'une balise
-                              <gi>placeName</gi> dont l'attribut obligatoire <att>ref</att> fait
-                           référence à l'identifiant du lieu en question.</p>
+                           Ces appellations ont été préalablement définies dans le
+                              <gi>teiHeader</gi> à l'aide d'éléments <gi>name</gi> (voir la section
+                           "Le settingDesc"). Dans le corps du texte, l'appellation est alors
+                           encadrée d'une balise <gi>placeName</gi> dont l'attribut obligatoire
+                              <att>ref</att> fait référence à l'identifiant du lieu en question.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                            <placeName ref="#saint_ange">château Saint-Ange</placeName>
                         </egXML>
@@ -548,7 +536,7 @@
                         <p>Elle consiste en la mention indirecte de l'un des lieux définis
                            préalablement dans le <gi>settingDesc</gi>. Cette mention est indirecte
                            car elle n'utilise pas l'une des appellations définies par un élément
-                              <gi>pname</gi> dans le <gi>settingDesc</gi>. Elle est alors indiquée à
+                              <gi>name</gi> dans le <gi>settingDesc</gi>. Elle est alors indiquée à
                            l'aide d'un élément <gi>rs</gi>, dont l'attribut obligatoire
                               <att>type</att> est alors <val>"place"</val>. Un second attribut
                            obligatoire <att>ref</att> vient quant à lui indiquer l'identifiant du
@@ -580,7 +568,9 @@
                      valeur est alors de <val>"false"</val>).</p>
                   <p>Un attribut obligatoire <att>direct</att> venant indiquer si le discours est
                      direct (sa valeur est alors <val>"true"</val>, qui est par ailleurs la valeur
-                     par défaut) ou rapporté (sa valeur est alors <val>"false"</val>).</p>
+                     par défaut) ou rapporté (sa valeur est alors <val>"false"</val>). Les autres
+                     valeurs possibles sont "unknown" (inconnu) ou "inapplicable"
+                     (inapplicable).</p>
                   <p>Un attribut facultatif <att>toWhom</att>, dont la valeur fait référence à
                      l'identifiant de l'auditeur. Cet attribut est facultatif, sa valeur n'étant pas
                      systématiquement renseignable.</p>
@@ -598,10 +588,9 @@
 
                   <p>Au fil de la lecture de <emph rend="italic">La Daniella</emph>, un certain
                      nombre de mots et signes de ponctuation se sont avérés être erronés au regard
-                     de notre grammaire actuelle. Ces corrections apportées au texte original
-                     figurent dans les éléments <gi>choice</gi></p>
-                  <p>Ces derniers peuvent ensuite abriter deux paires d'éléments obligatoires
-                     différents :</p>
+                     de nos standards actuels et furent donc rectifiés. Ces corrections apportées au
+                     texte original figurent dans les éléments <gi>choice</gi>.</p>
+                  <p>Ces derniers se composent alternativement de deux éléments obligatoires :</p>
                   <p>Pour rectifier une erreur manifeste, cette dernière est encadrée d'une balise
                         <gi>sic</gi>, tandis que la correction est injectée dans une balise
                         <gi>corr</gi>.</p>
@@ -638,13 +627,14 @@
                      dernier présente un attribut obligatoire <att>xml:lang</att> dont la valeur
                      vient indiquer la langue en question à l'aide d'un code issu d'une liste fermée
                         (<val>"it"</val> pour italien, <val>"en"</val> pour anglais). La valeur de
-                     cet attribut est renseignée selon la norme ISO 639-1 -
-                     https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1).</p>
+                     cet attribut est renseignée selon la norme ISO 639-1
+                     (https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1).</p>
 
-                  <p>Il a été décidé d'encoder l'usage d'une langue étrangère uniquement lorsque
-                     l'édition source l'indiquait par l'usage de caractères en italique. Le projet
-                     d'encodage pourrait cependant être étendu dans le futur en y intégrant les mots
-                     étrangers non-écrits en italique (tels que "mylord" ou "miss" par exemple).</p>
+                  <p>Il a été décidé d'encoder l'utilisation d'une langue étrangère uniquement
+                     lorsque l'édition source l'indiquait par l'usage de caractères en italique. Le
+                     projet d'encodage pourrait cependant être étendu dans le futur en y intégrant
+                     les mots étrangers non-écrits en italique (tels que "mylord" ou "miss" par
+                     exemple).</p>
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <foreign xml:lang="it"><emph style="font-style: italic"
                         >influenza</emph></foreign>
@@ -886,9 +876,9 @@
                         <s:pattern>
                            <s:rule
                               context="tei:TEI/tei:teiHeader/tei:profileDesc/tei:settingDesc/tei:listPlace//tei:place/tei:placeName">
-                              <s:assert test="tei:name">Un élément placeName dans le profileDesc
+                              <s:assert test="tei:name">Un élément placeName dans le settingDesc
                                  doit obligatoirement disposer d'un élément name.</s:assert>
-                              <s:assert test="tei:address">Un élément placeName dans le profileDesc
+                              <s:assert test="tei:address">Un élément placeName dans le settingDesc
                                  doit obligatoirement disposer d'un élément address.</s:assert>
                            </s:rule>
                         </s:pattern>
@@ -1018,7 +1008,7 @@
                </elementSpec>
 
 
-               <!-- FORCER UN ATTRIBUT ISO POUR LA DATE -->
+               <!-- AVOIR UN ATTRIBUT ISO POUR LA DATE -->
 
                <elementSpec ident="date" mode="change">
                   <attList>

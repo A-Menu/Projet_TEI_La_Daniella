@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-02-05T13:47:29Z. .
+Schema generated from ODD source 2022-02-05T16:45:47Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -75,7 +75,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24386-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24383-constraint">
          <rule context="tei:content">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://relaxng.org/ns/compatibility/annotations/1.0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'http://relaxng.org/ns/structure/1.0', 'http://www.tei-c.org/ns/1.0'))]">content descendants must be in the
               namespaces
@@ -3989,9 +3989,9 @@ Measures]</a:documentation>
                     xmlns:rng="http://relaxng.org/ns/structure/1.0"
                     xmlns:s="http://purl.oclc.org/dsdl/schematron">
             <s:rule context="tei:TEI/tei:teiHeader/tei:profileDesc/tei:settingDesc/tei:listPlace//tei:place/tei:placeName">
-               <s:assert test="tei:name">Un élément placeName dans le profileDesc
+               <s:assert test="tei:name">Un élément placeName dans le settingDesc
                                  doit obligatoirement disposer d'un élément name.</s:assert>
-               <s:assert test="tei:address">Un élément placeName dans le profileDesc
+               <s:assert test="tei:address">Un élément placeName dans le settingDesc
                                  doit obligatoirement disposer d'un élément address.</s:assert>
             </s:rule>
          </s:pattern>
