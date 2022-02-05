@@ -46,10 +46,16 @@
 
             <div2>
                <head>Introduction</head>
-               <p>Faire une brève présentation du projet</p>
-               <p>Exploitations possibles du projet</p>
 
-               <!-- LOREM IPSUM -->
+               <p> La présente ODD vise à documenter l'encodage en XML-TEI du roman <emph>La
+                     Daniella</emph>. Écrit par George Sand, celui-ci a été publié de janvier à mars
+                  1857 sous la forme de feuilletons par le journal <emph>La Presse</emph>.
+                  L'encodage porte en l'espèce sur une partie du chapitre VIII, paru dans le numéro
+                  du 14 janvier 1857 du journal. </p>
+
+               <p>En plus de rensiegner les balises et attributs utilisés, cette ODD contient
+                  également de n</p>
+
                <p>Cette documentation a pour but d'expliquer comment a été encodée en XML-TEI
                   l'oeuvre citée en titre, ainsi que les objectifs de ce schéma. Cet ODD présente
                   des principes stricts d'encodage dans le but de produire un document exploitable
@@ -61,6 +67,7 @@
                   quelles relations avaient-ils entre eux.</p>
                <p>Une attention particulière a été portée à la normalisation des données, afin de
                   faciliter une réexploitation de celles-ci.</p>
+
                <p>Ces résultats sont également exploitables à plusieurs échelles. Une première
                   échelle possède une portée intérieure à l'oeuvre encodée ici, tandis que la
                   seconde échelle se concentre sur le roman-feuilleton en général. Ces degrés
@@ -139,8 +146,7 @@
                            <edition> Encodage et ODD réalisés dans le cadre du cours de XML-TEI de
                               Mme Ségolène Albouy du Master TNAH de l'Ecole nationale des chartes </edition>
                            <respStmt>
-                              <resp>Encodage</resp>
-                              <resp>Création d'une ODD</resp>
+                              <resp>Encodage XML-TEI et création d'une ODD</resp>
                               <persName xml:id="a_menu">
                                  <forename>Ariane</forename>
                                  <surname>Menu</surname>
@@ -274,6 +280,10 @@
                   <p>Le <gi>profileDesc</gi> renseigne les informations non-relatives aux références
                      bibliographiques du texte. Il se compose ici de trois éléments : le
                         <gi>creation</gi>, le <gi>particDesc</gi> et le <gi>settingDesc</gi>.</p>
+                  <p>Le <gi>particDesc</gi> et le <gi>settingDesc</gi> servent d'index des
+                     personnages et des lieux évoqués dans le roman. Leur utilisation est
+                     méthodiquement contrôlée afin d'obtenir des informations complètes et
+                     homogènes, essentielles à une étude du texte.</p>
 
                   <div4>
                      <head>L'élément <gi>creation</gi></head>
@@ -325,6 +335,7 @@
                         <person xml:id="medora">
                            <persName><roleName type="honorific">Miss</roleName> Medora</persName>
                            <persName><roleName type="nobility">Princesse</roleName></persName>
+                           <sex value="F"/>
                            <note>Nièce de <persName ref="#B"><roleName type="nobility"
                                     >lord</roleName> B***</persName> et <persName ref="#harriet"
                                     ><roleName type="nobility">lady</roleName> Harriet</persName>,
@@ -347,9 +358,10 @@
                      <p>L'élément <gi>place</gi> comrend nécessairement un élément
                            <gi>placeName</gi> ainsi qu'une <gi>note</gi> facultative venant
                         brièvement décrire le lieu. L'élément <gi>placeName</gi> contient quant à
-                        lui un ou plusieurs éléments <gi>name</gi>, indiquant les appellations du
-                        lieu. Il comprend également un élément <gi>address</gi>, renseignant quand
-                        cela est possible le pays, la ville et des codes identifiant le lieu.</p>
+                        lui au moins un élément <gi>name</gi> indiquant les appellations du lieu
+                        (une balise par appellation). Il comprend également nécessairement un
+                        élément <gi>address</gi>, renseignant quand cela est possible le pays, la
+                        ville et les codes identifiant le lieu.</p>
                      <p>Le pays est indiqué à l'aide d'une ou plusieurs balises obligatoires
                            <gi>country</gi> portant l'attribut <att>key</att> (la valeur de cet
                         attribut est une liste fermée correspondant aux codes de l'Italie, la France
@@ -391,25 +403,31 @@
             <div2>
                <head>Encoder le document : le <gi>text</gi></head>
                <p>L'intégralité de l'encodage fut réalisé au sein de la balise <gi>body</gi> du
-                     <gi>text</gi>. Un <gi>front</gi> et un <gi>back</gi> avaient été placés
-                  respectivement avant et après le <gi>body</gi> afin d'encoder les éléments
+                     <gi>text</gi>. Un <gi>front</gi> et un <gi>back</gi> avaient précédemment été
+                  placés respectivement avant et après le <gi>body</gi> afin d'encoder les éléments
                   antérieurs ("Feuilleton de La Presse du mercredi soir 14 janvier 1857 / La
-                  Daniella.") et postérieurs ("George Sand. (La suite à demain.)) extérieurs au
-                  roman lui-même. Ces éléments, qui auraient également pu figurer dans la balise
-                     <gi>body</gi> dans des <gi>div</gi>, ne furent finalement pas encodés afin de
-                  se concentrer uniquement sur le roman lui-même.</p>
+                  Daniella.") et postérieurs ("George Sand. (La suite à demain.)) au roman lui-même.
+                  Ces éléments, qui auraient également pu figurer dans la balise <gi>body</gi> au
+                  sein d'éléments <gi>div</gi>, ne furent finalement pas encodés afin de se
+                  concentrer uniquement sur le roman lui-même.</p>
 
 
                <div3>
                   <head>Structurer le texte encodé</head>
                   <p>Comme évoqué dans la section précédente, seul le texte relevant du roman
-                     lui-même fut encodé. Il fut structuré en <gi>div</gi>, chaque <gi>div</gi>
-                     représentant un chapitre, comme indiqué par leur attribut <att>type</att> de
-                     valeur <val>"chapter"</val>, tandis qu'un second attribut <att>n</att> vient
-                     renseigner le numéro du chapitre (<val>"8"</val> en l'espèce - cette valeur
-                     doit obligatoirement être un entier positif).</p>
-                  <p>L'en-tête du chapitre est obligatoirement indiqué dans l'élément <gi>head</gi>.
-                     Chaque paragraphe est quant à lui inséré dans un élément <gi>p</gi>.</p>
+                     lui-même fut encodé à l'aide de balises <gi>div</gi>. Chaque <gi>div</gi>
+                     représente un chapitre, comme indiqué par un attribut obligatoire
+                        <att>type</att> de valeur <val>"chapter"</val>. Un second attribut
+                        <att>n</att> vient obligatoirement renseigner le numéro du chapitre
+                        (<val>"8"</val> en l'espèce - cette valeur doit nécessairement être un
+                     entier positif).</p>
+                  <p>L'en-tête du chapitre doit être indiquée dans l'élément <gi>head</gi>. Chaque
+                     paragraphe est quant à lui inséré dans un élément <gi>p</gi>.</p>
+
+                  <p>Cette méthode permet d'obtenir un encodage homogène du texte et respectant sa
+                     structure en chapitres, tout en retranscrivant le numéro et l'en-tête de
+                     ceux-ci.</p>
+
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <div type="chapter" n="8">
                         <head>VIII (Suite).</head>
@@ -427,18 +445,26 @@
                      de colonne avec une balise <gi>cb</gi> et les nombreux débuts de ligne avec une
                      balise <gi>lb</gi>. Cette façon de procéder avait pour défaut majeur de
                      reproduire les césures de fin de ligne ; ainsi un mot écrit sur deux lignes se
-                     voyait également coupé dans l'encodage par le trait d'union (quand bien même on
-                     donnait à la balise <gi>lb</gi> un attribut <att>rend</att> de valeur
-                        <val>"hyphen"</val>). En plus de diminuer la lisibilité, ceci diminuait
-                     considérablement les possibilités de fouille textuelle sur le document. Cette
-                     structuration imitant à la lettre la mise ne page originale fut donc abandonnée
-                     pour favoriser le texte du roman lui-même.</p>
+                     voyait également coupé dans l'encodage par le trait d'union. En plus de
+                     détériorer la lisibilité, ceci diminuait considérablement les possibilités de
+                     fouille textuelle sur le document. Cette structuration imitant à la lettre la
+                     mise ne page originale fut donc abandonnée pour favoriser le texte du roman
+                     lui-même.</p>
                </div3>
 
                <div3>
                   <head>Faire référence aux personnages et aux lieux</head>
                   <p><emph style="italic">Note préliminaire</emph> : voir les sections "Le
                      particDesc" et "Le settingDesc" pour une meilleure compréhension.</p>
+
+                  <p>Cette méthode permet d'obtenir un encodage homogène des références aux
+                     personnages et aux lieux évoqués dans le roman. Celui-ci est de plus réalisé de
+                     manière rigoureuse à l'aide d'attributs obligatoires, voire d'attributs
+                     disposant de valeurs issues de listes fermées afin d'éviter toute irrégularité.
+                     Le résultat peut alors faire l'objet d'une fouille textuelle minitieuse
+                     relative aux personnages et aux lieux, combinée à leur description réalisée
+                     dans le <gi>teiHeader</gi>.</p>
+
                   <p>Le référencement des personnages et des lieux fonctionne sur un système
                      relativement similaire ; il sera cependant explicité pour chaque cas pour plus
                      de clarté :</p>
@@ -452,11 +478,11 @@
                            personnage. Ces appellations ont été préalablement définies dans le
                            teiHeader à l'aide d'éléments <gi>persName</gi> (voir la section "Le
                            particDesc"). Dans le corps du texte, l'appellation est alors encadrée
-                           d'une balise <gi>persName</gi> dont l'attribut <att>ref</att> fait
-                           référence à l'identifiant du personnage en question. Si l'appellation
-                           comporte un titre de noblesse ou une civilité, ceux-ci sont également
-                           encodés à l'aide d'une balise <gi>roleName</gi> nichée au sein de
-                           l'élément <gi>persName</gi> (voir la section "Le particDesc" pour plus
+                           d'une balise <gi>persName</gi> dont l'attribut obligatoire <att>ref</att>
+                           fait référence à l'identifiant du personnage en question. Si
+                           l'appellation comporte un titre de noblesse ou une civilité, ceux-ci sont
+                           également encodés à l'aide d'une balise <gi>roleName</gi> nichée au sein
+                           de l'élément <gi>persName</gi> (voir la section "Le particDesc" pour plus
                            d'informations).</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                            <persName ref="#tartaglia">Tartaglia</persName>
@@ -510,8 +536,8 @@
                            Ces appellations ont été préalablement définies dans le teiHeader à
                            l'aide d'éléments <gi>name</gi> (voir la section "Le settingDesc"). Dans
                            le corps du texte, l'appellation est alors encadrée d'une balise
-                              <gi>placeName</gi> dont l'attribut <att>ref</att> fait référence à
-                           l'identifiant du lieu en question.</p>
+                              <gi>placeName</gi> dont l'attribut obligatoire <att>ref</att> fait
+                           référence à l'identifiant du lieu en question.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                            <placeName ref="#saint_ange">château Saint-Ange</placeName>
                         </egXML>
@@ -536,6 +562,8 @@
                         </egXML>
                      </div5>
                   </div4>
+
+
                </div3>
 
 
@@ -544,7 +572,7 @@
                   <p>Les paroles des personnages sont rapportées au sein d'éléments <gi>said</gi>.
                      Dans le cas où les paroles sont indiquées par des guillemets ou un tiret,
                      ceux-ci sont également intégrés dans l'élément. L'élément <gi>said</gi> a été
-                     pourvue de nombreux attributs afin de préciser son contexte :</p>
+                     pourvu de nombreux attributs afin de préciser son contexte :</p>
                   <p>Un attribut obligatoire <att>who</att>, dont la valeur fait référence à
                      l'identifiant du locuteur.</p>
                   <p>Un attribut obligatoire <att>aloud</att> venant indiquer si les paroles ont été
@@ -554,7 +582,8 @@
                      direct (sa valeur est alors <val>"true"</val>, qui est par ailleurs la valeur
                      par défaut) ou rapporté (sa valeur est alors <val>"false"</val>).</p>
                   <p>Un attribut facultatif <att>toWhom</att>, dont la valeur fait référence à
-                     l'identifiant de l'auditeur.</p>
+                     l'identifiant de l'auditeur. Cet attribut est facultatif, sa valeur n'étant pas
+                     systématiquement renseignable.</p>
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <said who="#harriet" aloud="true" direct="true" toWhom="#B">— Ah ! ciel
                         !</said> s’écria <persName ref="#harriet"><roleName type="nobility"
@@ -612,7 +641,7 @@
                      cet attribut est renseignée selon la norme ISO 639-1 -
                      https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1).</p>
 
-                  <p>Il a été décidé d'indiquer l'usage d'une langue étrangère uniquement lorsque
+                  <p>Il a été décidé d'encoder l'usage d'une langue étrangère uniquement lorsque
                      l'édition source l'indiquait par l'usage de caractères en italique. Le projet
                      d'encodage pourrait cependant être étendu dans le futur en y intégrant les mots
                      étrangers non-écrits en italique (tels que "mylord" ou "miss" par exemple).</p>
@@ -846,6 +875,21 @@
                            <s:rule context="tei:TEI/tei:text/descendant::tei:placeName">
                               <s:assert test="@ref">Un élément placeName dans le text doit
                                  obligatoirement disposer d'un attribut ref.</s:assert>
+                           </s:rule>
+                        </s:pattern>
+                     </constraint>
+                  </constraintSpec>
+                  <!-- Un élément placeName dans un élément place du settingDesc doit obligatoirement
+                                 disposer d'un élément name et d'un élément address. -->
+                  <constraintSpec ident="placeNameSettingDesc" scheme="schematron">
+                     <constraint>
+                        <s:pattern>
+                           <s:rule
+                              context="tei:TEI/tei:teiHeader/tei:profileDesc/tei:settingDesc/tei:listPlace//tei:place/tei:placeName">
+                              <s:assert test="tei:name">Un élément placeName dans le profileDesc
+                                 doit obligatoirement disposer d'un élément name.</s:assert>
+                              <s:assert test="tei:address">Un élément placeName dans le profileDesc
+                                 doit obligatoirement disposer d'un élément address.</s:assert>
                            </s:rule>
                         </s:pattern>
                      </constraint>

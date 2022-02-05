@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-02-04T17:00:06Z. .
+Schema generated from ODD source 2022-02-05T13:47:29Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -75,7 +75,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24356-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e24386-constraint">
          <rule context="tei:content">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://relaxng.org/ns/compatibility/annotations/1.0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'http://relaxng.org/ns/structure/1.0', 'http://www.tei-c.org/ns/1.0'))]">content descendants must be in the
               namespaces
@@ -3984,6 +3984,17 @@ Measures]</a:documentation>
                                  obligatoirement disposer d'un attribut ref.</s:assert>
             </s:rule>
          </s:pattern>
+         <s:pattern xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xmlns="http://www.tei-c.org/ns/1.0"
+                    xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                    xmlns:s="http://purl.oclc.org/dsdl/schematron">
+            <s:rule context="tei:TEI/tei:teiHeader/tei:profileDesc/tei:settingDesc/tei:listPlace//tei:place/tei:placeName">
+               <s:assert test="tei:name">Un élément placeName dans le profileDesc
+                                 doit obligatoirement disposer d'un élément name.</s:assert>
+               <s:assert test="tei:address">Un élément placeName dans le profileDesc
+                                 doit obligatoirement disposer d'un élément address.</s:assert>
+            </s:rule>
+         </s:pattern>
          <ref name="att.datable.w3c.attribute.when"/>
          <ref name="att.datable.w3c.attribute.notBefore"/>
          <ref name="att.datable.w3c.attribute.notAfter"/>
@@ -4349,7 +4360,7 @@ Measures]</a:documentation>
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.deprecated-validUntil-deprecation-two-month-warning-constraint-rule-10">
+            id="oddbyexample-att.deprecated-validUntil-deprecation-two-month-warning-constraint-rule-11">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.tei-c.org/ns/1.0"
@@ -4370,7 +4381,7 @@ Measures]</a:documentation>
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.deprecated-validUntil-deprecation-should-be-explained-constraint-rule-11">
+            id="oddbyexample-att.deprecated-validUntil-deprecation-should-be-explained-constraint-rule-12">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.tei-c.org/ns/1.0"
@@ -4509,7 +4520,7 @@ Measures]</a:documentation>
             <ref name="content"/>
          </optional>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-moduleRef-modref-constraint-rule-12">
+                  id="oddbyexample-moduleRef-modref-constraint-rule-13">
             <rule xmlns:xi="http://www.w3.org/2001/XInclude"
                   xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -4582,7 +4593,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-schemaSpec-deprecate_schemaSpec_in_bizarre_places-constraint-rule-13">
+                  id="oddbyexample-schemaSpec-deprecate_schemaSpec_in_bizarre_places-constraint-rule-14">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -4645,7 +4656,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-elementSpec-child-constraint-based-on-mode-constraint-rule-14">
+                  id="oddbyexample-elementSpec-child-constraint-based-on-mode-constraint-rule-15">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -4769,7 +4780,7 @@ Child elements of <name/> are only allowed when an external module is being load
             <ref name="model.contentPart"/>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-sequence-sequencechilden-constraint-assert-16">
+                  id="oddbyexample-sequence-sequencechilden-constraint-assert-18">
             <rule context="tei:sequence">
                <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4808,7 +4819,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </choice>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-alternate-alternatechilden-constraint-assert-17">
+                  id="oddbyexample-alternate-alternatechilden-constraint-assert-19">
             <rule context="tei:alternate">
                <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4877,7 +4888,7 @@ Child elements of <name/> are only allowed when an external module is being load
              prefix="teix"
              uri="http://www.tei-c.org/ns/Examples"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-attDefContents-constraint-assert-18">
+                  id="oddbyexample-attDef-attDefContents-constraint-assert-20">
             <rule context="tei:attDef">
                <assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                        xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4889,7 +4900,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-noDefault4Required-constraint-rule-16">
+                  id="oddbyexample-attDef-noDefault4Required-constraint-rule-17">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -4900,7 +4911,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-defaultIsInClosedList-twoOrMore-constraint-rule-17">
+                  id="oddbyexample-attDef-defaultIsInClosedList-twoOrMore-constraint-rule-18">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -4914,7 +4925,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-defaultIsInClosedList-one-constraint-rule-18">
+                  id="oddbyexample-attDef-defaultIsInClosedList-one-constraint-rule-19">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -5263,7 +5274,7 @@ Child elements of <name/> are only allowed when an external module is being load
       </attribute>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.identified-spec-in-module-constraint-rule-19">
+            id="oddbyexample-att.identified-spec-in-module-constraint-rule-20">
       <rule xmlns:xi="http://www.w3.org/2001/XInclude"
             xmlns:rng="http://relaxng.org/ns/structure/1.0"
             xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5305,7 +5316,7 @@ should correspond to an existing module, via a moduleSpec or
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.repeatable-MINandMAXoccurs-constraint-rule-20">
+            id="oddbyexample-att.repeatable-MINandMAXoccurs-constraint-rule-21">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.tei-c.org/ns/1.0"

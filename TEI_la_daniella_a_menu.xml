@@ -2,7 +2,6 @@
 
 <?xml-model href="out/ODD_la_daniella_a_menu.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="out/ODD_la_daniella_a_menu.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
 
@@ -19,8 +18,7 @@
             <edition> Encodage et ODD réalisés dans le cadre du cours de XML-TEI de Mme Ségolène
                Albouy du Master TNAH de l'Ecole nationale des chartes </edition>
             <respStmt>
-               <resp>Encodage</resp>
-               <resp>Création d'une ODD</resp>
+               <resp>Encodage XML-TEI et création d'une ODD</resp>
                <persName xml:id="a_menu">
                   <forename>Ariane</forename>
                   <surname>Menu</surname>
@@ -325,7 +323,6 @@
                   </placeName>
                   <note>Capitale de la France.</note>
                </place>
-
 
             </listPlace>
          </settingDesc>
